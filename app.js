@@ -1,6 +1,6 @@
 // app.js
 App({
-  taskapi: 'https://ryksa.dltqwy.com/index.php/api', //正式接口测试
+	taskapi: 'https://ahs.dltqwy.com/index.php/api', //正式接口测试
   onLaunch() {
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
@@ -14,17 +14,15 @@ App({
     })
   },
   globalData: {
-	  //小程序获取的微信用户信息
+	  meid: '',
+	  a_id: '',
+	  ct_ids:'',
 	  userInfo: [],
+	  merchantsInfo:[],
 	  openid: '',
 	  sessionKey: '',
-	  
-	  btype: '',
-	  school: '',
-	  area: '',
-	  ftype: '',
-	  money: '',
-	  
-	  token: ''
+	  token: '',
+	  merchants_sessionKey: '',
+	  merchants_token: ''
   }
 })

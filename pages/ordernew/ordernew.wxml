@@ -1,0 +1,86 @@
+<!--pages/order/order.wxml-->
+<view class="order">
+  <view class="my_top">
+    <view class="order_top">
+      <view class="my_center_list">
+        <view class="my_center_item" data-id="1" bindtap="changeTabbar">
+          <image src='../../images/my1.png' mode="aspectFill" />
+          <view class="my_center_text">已预约</view>
+		  <block wx:if="{{shujusum.sum1 > 0}}">
+		     <view class="my_center_num">{{shujusum.sum1}}</view>
+		  </block>
+        </view>
+        <view class="my_center_item" data-id="2" bindtap="changeTabbar">
+          <image src='../../images/my2.png' mode="aspectFill" />
+          <view class="my_center_text">待回收</view>
+          <block wx:if="{{shujusum.sum2 > 0}}">
+             <view class="my_center_num">{{shujusum.sum2}}</view>
+          </block>
+        </view>
+        <view class="my_center_item" data-id="3" bindtap="changeTabbar">
+          <image src='../../images/my3.png' mode="aspectFill" />
+          <view class="my_center_text">已完成</view>
+          <block wx:if="{{shujusum.sum3 > 0}}">
+             <view class="my_center_num">{{shujusum.sum3}}</view>
+          </block>
+        </view>
+        <view class="my_center_item" data-id="4" bindtap="changeTabbar">
+          <image src='../../images/my4.png' mode="aspectFill" />
+          <view class="my_center_text">已取消</view>
+          <block wx:if="{{shujusum.sum4 > 0}}">
+             <view class="my_center_num">{{shujusum.sum4}}</view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="inner">
+    <view class="order_block">
+      <view class="order_list">
+		  <block wx:for="{{orderlist}}" wx:index="{{index}}" wx:key='key'>
+			   <view class="order_link">
+			     <view class="order_info">
+			       <view class="order_title">约定时间</view>
+			       <view class="order_text">{{item.delivery_date}} {{item.delivery_time}}</view>
+			     </view>
+			     <view class="order_info">
+			       <view class="order_title">商家名称</view>
+			       <view class="order_text">{{item.muser}}</view>
+			     </view>
+			     <view class="order_info">
+			       <view class="order_title">商家地址</view>
+			       <view class="order_text">{{item.maddress}}</view>
+			     </view>
+				 <view class="order_info">
+				   <view class="order_title">订单状态</view>
+				   <view class="order_text">{{item.ostate}}</view>
+				 </view>
+				 <view class="order_info">
+				   <view class="order_title">订单类型</view>
+				   <block wx:if="{{item.otype != 1}}">
+				      <view class="order_text">自己送货</view>
+				   </block>
+				   <block wx:if="{{item.otype == 1}}">
+				      <view class="order_text">上门取货</view>
+				   </block>
+				 </view>
+				 <view class="order_info">
+				   <view class="order_title">订单价格</view>
+				   <block wx:if="{{item.sum_price != 0}}">
+				      <view class="order_text">{{item.sum_price}}元</view>
+				   </block>
+				   <block wx:else>
+				      <view class="order_text">商家目前还没有称重</view>
+				   </block>
+				 </view>
+				 <block wx:if="{{item.order_status != 1}}">
+					<navigator url="../orderex/orderex?oid={{item.oid}}&isCancel={{item.ostate}}" hover-class="none">
+			           <view class="order_look">查看详情</view>
+					</navigator>
+				 </block>
+			   </view>
+		  </block>
+      </view>
+    </view>
+  </view>
+</view>

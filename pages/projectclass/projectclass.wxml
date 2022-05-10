@@ -1,0 +1,47 @@
+<!--pages/project/project.wxml-->
+<view class="project">
+  <view class="project_left">
+	  <block wx:for="{{classonelist}}" wx:index="{{index}}" wx:key='key'>
+		  <view data-id="{{item.co_id}}" bindtap="changeTabbar" class="project_left_text {{co_id == item.co_id ? 'project_left_active' : ''}}">{{item.co_name}}</view>
+	  </block>
+  </view>
+  <view class="project_right">
+    <view class="project_list">
+		<block wx:for="{{classtwolist}}" wx:index="{{index}}" wx:key='key'>
+				  <view class="project_item">
+				    <image src='{{item.ct_img}}' mode="widthFix" />
+				    <view class="project_area">
+				      <view class="project_name">{{item.ct_name}}</view>
+				      <view class="project_caption">{{item.ct_title}}</view>
+				      <view class="project_info">
+				        <view class="project_num"><view>{{item.ct_state}}</view>¥{{item.ct_price}}/kｇ</view>
+						<checkbox-group data-id="{{item.ct_id}}" bindchange="checkboxChange">
+							<block wx:if="{{item.check_state == 1}}">
+								<view class="shopcart_checkbox">
+								  <checkbox value="{{item.ct_id}}" checked="checked"></checkbox>
+								</view>
+							</block>
+							<block wx:else>
+								<view class="shopcart_checkbox">
+								  <checkbox value="{{item.ct_id}}"></checkbox>
+								</view>
+							</block>
+						</checkbox-group>
+				      </view>
+				    </view>
+				  </view>
+		</block>
+    </view>
+  </view>
+  <view class="blank60"></view>
+  <view class="project_bottom">
+    <view class="project_bottom_box">
+      <image src='../../images/ico8.png' mode="aspectFill" />
+      <view class="project_bottom_info">
+        <view class="project_bottom_num"><view style="font-size: 22rpx;">温馨提示:请先选择要回收的分类!</view></view>
+        <view class="project_bottom_caption">成交价格以实际评估为准</view>
+      </view>
+    </view>
+    <navigator url="../orderque/orderque" hover-class="none" class="project_bottom_link">去下单</navigator>
+  </view>
+</view>

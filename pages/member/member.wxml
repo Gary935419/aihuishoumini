@@ -1,0 +1,79 @@
+<!--pages/member/member.wxml-->
+<view class="member">
+  <view class="addaddress_top"></view>
+  <view class="inner">
+    <view class="member_block">
+      <navigator class="member_choose" url="../businessfirm/businessfirm" hover-class="none">
+		  <block wx:if="{{merchantsInfo.meimg != ''}}">
+		  	<image src='{{merchantsInfo.meimg}}' mode="widthFix" />
+		  </block>
+		  <block wx:else>
+			  <image src='../../images/header.png' mode="widthFix" />
+		  </block>
+		  
+        <view class="member_choose_box">
+          <view class="member_choose_info">
+            <view class="member_choose_name">{{merchantsInfo.mename}}</view>
+            <view class="member_choose_tel">{{merchantsInfo.metel}}</view>
+          </view>
+          <image src='../../images/jian1.png' mode="aspectFill" />
+        </view>
+      </navigator>
+      <view class="member_area">
+        <view class="member_area_box">
+          <view class="member_area_num">{{shujusum.sum1}}</view>
+          <view class="member_area_text">回收次数</view>
+        </view>
+        <view class="member_area_box">
+          <view class="member_area_num">{{shujusum.sum2}}</view>
+          <view class="member_area_text">回收金额</view>
+        </view>
+        <view class="member_area_box">
+          <view class="member_area_num">{{shujusum.sum3}}</view>
+          <view class="member_area_text">赚取金额</view>
+        </view>
+        <view class="member_area_box">
+          <view class="member_area_num">{{shujusum.sum4}}</view>
+          <view class="member_area_text">提现金额</view>
+        </view>
+      </view>
+      <view class="member_list">
+        <!-- <navigator class="member_link" bindtap="warncostatenoTrue" hover-class="none">
+          <view>交易记录</view>
+          <image src='../../images/jian1.png' mode="aspectFill" />
+        </navigator> -->
+        <!-- <navigator class="member_link" url="../list/list" hover-class="none">
+          <view>司机评价</view>
+          <image src='../../images/jian1.png' mode="aspectFill" />
+        </navigator> -->
+        <navigator class="member_link" url="../list/list" hover-class="none">
+          <view>提现记录</view>
+          <image src='../../images/jian1.png' mode="aspectFill" />
+        </navigator>
+        <!-- <navigator class="member_link" url="../list/list" hover-class="none">
+          <view>商家等级</view>
+          <image src='../../images/jian1.png' mode="aspectFill" />
+        </navigator>
+        <navigator class="member_link" url="../list/list" hover-class="none">
+          <view>通知公告</view>
+          <image src='../../images/jian1.png' mode="aspectFill" />
+        </navigator> -->
+      </view>
+    </view>
+  </view>
+  <view class="blank70"></view>
+  <view class="orderlist_bottom">
+    <navigator class="orderlist_link" url="../orderlist/orderlist" hover-class="none">
+      <image src='../../images/nav7.png' mode="aspectFill" />
+      <view>订单查看</view>
+    </navigator>
+    <navigator class="orderlist_link" url="../withdrawal/withdrawal" hover-class="none">
+      <image src='../../images/nav8.png' mode="aspectFill" />
+      <view>申请提现</view>
+    </navigator>
+    <navigator class="orderlist_link orderlist_on" url="../member/member" hover-class="none">
+      <image src='../../images/nav11.png' mode="aspectFill" />
+      <view>商家中心</view>
+    </navigator>
+  </view>
+</view>

@@ -1,0 +1,20 @@
+<!--pages/list/list.wxml-->
+<view class="list">
+  <view class="inner">
+    <view class="transaction_list">
+		
+		<block wx:for="{{withdrawallist}}" wx:index="{{index}}" wx:key='key'>
+			<view class="transaction_item">
+			<view class="transaction_box" style="width: 100%;">
+			  <view class="transaction_info">
+				<view class="transaction_name">提现金额:{{item.money}}元</view>
+				<view class="transaction_num">申请时间:{{item.addtime}}</view>
+			  </view>
+			  <view class="transaction_price">{{item.state}}</view>
+			</view>
+			</view>
+         </block>
+	  
+    </view>
+  </view>
+</view>

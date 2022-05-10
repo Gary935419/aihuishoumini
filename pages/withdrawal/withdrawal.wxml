@@ -1,0 +1,46 @@
+<!--pages/withdrawal/withdrawal.wxml-->
+<view class="withdrawal">
+  <view class="addaddress_top"></view>
+  <view class="inner">
+    <view class="withdrawal_block">
+      <view class="ordertijiao_area">
+        <view class="ordertijiao_info">
+          <view class="ordertijiao_text">钱包金额</view>
+          <view class="tui-picker-detail">{{userinfo.me_wallet}}元</view>
+        </view>
+        <!-- <view class="ordertijiao_info">
+          <view class="ordertijiao_text">提现金额</view>
+          <input type="text" placeholder="请录入提现金额" bindinput="bindmoneyText" placeholder-style="color:#999999" />
+        </view> -->
+		<view class="ordertijiao_info">
+		  <view class="ordertijiao_text">银行名</view>
+		  <input type="text" placeholder="请录入银行名" bindinput="bindbanknameText" placeholder-style="color:#999999" />
+		</view>
+		<view class="ordertijiao_info">
+		  <view class="ordertijiao_text">打款账户名</view>
+		  <input type="text" placeholder="请录入打款账户名" bindinput="bindbanknameuserText" placeholder-style="color:#999999" />
+		</view>
+		<view class="ordertijiao_info">
+		  <view class="ordertijiao_text">银行账号</view>
+		  <input type="text" placeholder="请录入银行账号" bindinput="bindbanknummberText" placeholder-style="color:#999999" />
+		</view>
+      </view>
+      <button class="ordertijiao_btu" bindtap='getwithdrawal'>确认提现</button>
+    </view>
+  </view>
+  <view class="blank70"></view>
+  <view class="orderlist_bottom">
+    <navigator class="orderlist_link" url="../orderlist/orderlist" hover-class="none">
+      <image src='../../images/nav7.png' mode="aspectFill" />
+      <view>订单查看</view>
+    </navigator>
+    <navigator class="orderlist_link orderlist_on" url="../withdrawal/withdrawal" hover-class="none">
+      <image src='../../images/nav11.png' mode="aspectFill" />
+      <view>申请提现</view>
+    </navigator>
+    <navigator class="orderlist_link" url="../member/member" hover-class="none">
+      <image src='../../images/nav9.png' mode="aspectFill" />
+      <view>会员中心</view>
+    </navigator>
+  </view>
+</view>

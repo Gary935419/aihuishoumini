@@ -1,0 +1,74 @@
+<!--pages/orderque/orderque.wxml-->
+<view class="orderque">
+  <view class="addaddress_top"></view>
+  <view class="inner">
+    <view class="orderque_top">
+      <navigator class="orderque_top_area" url="../addressxuan/addressxuan" hover-class="none">
+        <image src='../../images/ico9.png' mode="aspectFill" />
+        <view class="orderque_top_box">
+		  <block wx:if="{{a_id != ''}}">
+		     <view class="orderque_top_info">
+		       <view class="orderque_top_name">{{addressinfo.name}}   {{addressinfo.mobile}}</view>
+		     </view>
+		  </block>
+		  <block wx:if="{{a_id == ''}}">
+		    <view class="orderque_top_info">
+		      <view class="orderque_top_name">点击选择地址信息</view>
+		    </view>
+		  </block>
+          <image src='../../images/jian1.png' mode="aspectFill" />
+        </view>
+      </navigator>
+      <navigator class="orderque_top_area" url="../collecte/collecte" hover-class="none">
+        <image src='../../images/ico10.png' mode="aspectFill" />
+        <view class="orderque_top_box">
+			
+			<block wx:if="{{meid != ''}}">
+			   <view class="orderque_top_info">
+			     <view class="orderque_top_name">代收点：{{merchantsinfo.mename}}</view>
+			     <view class="orderque_top_text">{{merchantsinfo.meaddress}}</view>
+			   </view>
+			</block>
+			<block wx:if="{{meid == ''}}">
+			   <view class="orderque_top_info">
+			     <view class="orderque_top_name">点击选择代收点</view>
+			   </view>
+			</block>
+			
+          <image src='../../images/jian1.png' mode="aspectFill" />
+        </view>
+      </navigator>
+      <view class="orderque_top_area">
+        <image src='../../images/ico11.png' mode="aspectFill" />
+        <view class="orderque_top_box">
+          <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+            <view class="tui-picker-detail">
+             {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}送至代收点
+            </view>
+            <image src='../../images/jian1.png' mode="aspectFill" />
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="orderque_captiopn">
+          <image src='../../images/my11.png' mode="aspectFill" />
+          <view>请确保废品在可回收范围内；
+    新用户下单建议选择立即下单，选好分类后进行预约回收。
+          </view>
+        </view>
+    <view class="orderque_bei">
+      <view>订单备注</view>
+      <textarea bindinput="bindnoteText" placeholder="请输入备注信息"></textarea>
+    </view>
+    <view class="orderque_captiopn">
+      <image src='../../images/my11.png' mode="aspectFill" />
+      <view>建议您在送货前妥善整理货物，请勿掺水、掺杂；
+            尽量将纸板、易拉罐等拆开、踩扁，尽可能缩减存放体积；
+            确保不会造成二次污染共同助力环保；
+            下单后如有问题，可联系客服或代收点为您解决。
+      </view>
+    </view>
+
+    <view class="orderque_btu" bindtap="sendorder">立即下单</view>
+  </view>
+</view>

@@ -1,5 +1,3 @@
 {
-  "navigationBarBackgroundColor": "#0068dd",
-  "navigationBarTitleText": "置业友道" ,
-  "navigationBarTextStyle":"white"
+  "usingComponents": {}
 }

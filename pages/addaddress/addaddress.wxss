@@ -1,0 +1,4 @@
+/* pages/addaddress/addaddress.wxss */
+page {
+  background: #F7F7F7;
+}

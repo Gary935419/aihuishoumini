@@ -1,0 +1,68 @@
+<!--pages/orderlist/orderlist.wxml-->
+<view class="orderlist">
+  <view class="addaddress_top"></view>
+  <view class="inner">
+    <view class="orderlist_block">
+      <view class="orderlist_time">
+        <view class="orderlist_time_text">日期</view>
+        <picker mode="date" value="{{date}}" bindchange="changeDate">
+          <image src='../../images/jian1.png' mode="aspectFill" />
+          <view class="tui-picker-detail">
+           {{date}}
+          </view>
+        </picker>
+      </view>
+      <view class="orderlist_list">
+		  <block wx:for="{{orderlist}}" wx:index="{{index}}" wx:key='key'>
+			<view class="order_link" hover-class="none">
+			  <view class="order_info">
+				<view class="order_title">时间</view>
+				<view class="order_text">{{item.addtime}}</view>
+			  </view>
+			  <view class="order_info">
+				<view class="order_title">送货人</view>
+				<view class="order_text">{{item.uname}}</view>
+			  </view>
+			  <view class="order_info">
+				<view class="order_title">送货时间</view>
+				<view class="order_text">{{item.delivery_date}} {{item.delivery_time}}</view>
+			  </view>
+			  <view class="order_info">
+				<view class="order_title">送货人所在位置</view>
+				<view class="order_text">{{item.address}}</view>
+			  </view>
+			  <view class="order_info">
+			    <view class="order_title">订单价格</view>
+			    <block wx:if="{{item.sum_price != 0}}">
+			       <view class="order_text">{{item.sum_price}}元</view>
+			    </block>
+			    <block wx:else>
+			       <view class="order_text">目前还没有称重</view>
+			    </block>
+			  </view>
+			  <block wx:if="{{item.sum_price == 0}}">
+			  		<navigator url="../ordertijiao/ordertijiao?oid={{item.oid}}" hover-class="none">
+			            <view class="order_look">设置重量</view>
+			  		</navigator>
+			  </block>
+			</view>
+		   </block>
+      </view>
+    </view>
+  </view>
+  <view class="blank70"></view>
+  <view class="orderlist_bottom">
+    <navigator class="orderlist_link orderlist_on" url="../orderlist/orderlist" hover-class="none">
+      <image src='../../images/nav10.png' mode="aspectFill" />
+      <view>订单查看</view>
+    </navigator>
+    <navigator class="orderlist_link" url="../withdrawal/withdrawal" hover-class="none">
+      <image src='../../images/nav8.png' mode="aspectFill" />
+      <view>申请提现</view>
+    </navigator>
+    <navigator class="orderlist_link" url="../member/member" hover-class="none">
+      <image src='../../images/nav9.png' mode="aspectFill" />
+      <view>会员中心</view>
+    </navigator>
+  </view>
+</view>

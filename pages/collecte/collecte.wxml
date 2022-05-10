@@ -1,0 +1,55 @@
+<!--pages/collecte/collecte.wxml-->
+<view class="collecte">
+  <view class="collecte_top">
+    <!-- <navigator class="collecte_top_city" url="../city/city" hover-class="none">
+      <view>金州区</view>
+      <image src='../../images/jian3.png' mode="aspectFill" />
+    </navigator> -->
+    <form action="" class="collecte_top_form">
+      <image src='../../images/search2.png' bindtap="getOrderslistseach" mode="aspectFill" />
+      <input type="text" placeholder-style="color:#A1A1A1" bindinput="bindinfoText" placeholder="请输入代收点名称" />
+    </form>
+  </view>
+  <view class="inner">
+    <navigator class="collecte_address" url="../addressxuan1/addressxuan1" hover-class="none">
+      <view class="collecte_address_left">
+        <image src='../../images/ico7.png' mode="aspectFill" />
+		<block wx:if="{{a_id != ''}}">
+		   <view>{{addressinfo.address}}</view>
+		</block>
+		<block wx:if="{{a_id == ''}}">
+			<view>点击选择地址信息</view>
+		</block>
+      </view>
+      <view class="collecte_address_right">
+        <view>切换地址</view>
+        <image src='../../images/jian2.png' mode="aspectFill" />
+      </view>
+    </navigator>
+    <view class="collecte_title">附近代收点</view>
+    <view class="collecte_list">
+		
+		<block wx:for="{{orderlist}}" wx:index="{{index}}" wx:key='key'>
+			   <view class="collecte_item">
+				 <view class="collecte_area">
+				   <image src='{{item.meimg}}' mode="aspectFill" />
+				   <view class="collecte_box">
+					 <view class="collecte_info">
+					   <view class="collecte_name">{{item.mename}}</view>
+					   <view class="collecte_choose" data-id="{{item.meid}}" bindtap="getsendone">选这个</view>
+					 </view>
+					 <!-- <view class="collecte_num"><view>距离最近</view>据您步行距离：67米</view> -->
+					 <view class="collecte_num">据您步行距离：{{item.distance}}</view>
+					 <view class="collecte_add">{{item.meaddress}}</view>
+				   </view>
+				 </view>
+				 <view class="collecte_caption">
+					 <block wx:for="{{item.lablearr}}" wx:for-item="lablearritem" wx:key="{{lablearritem}}">
+								  <view>{{lablearritem.ltitle}}</view>
+					 </block>
+				 </view>
+			   </view>
+		</block>
+    </view>
+  </view>
+</view>

@@ -10,9 +10,10 @@ Page({
 	isGrant: false,
 	userinfo: [],
 	back_path: 'my',
+	shujusum:[],
   },
 
-  getUserProfile(e) {
+getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
     wx.getUserProfile({
       desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
@@ -54,6 +55,14 @@ Page({
       }
     })
   },
+  warncostatenoTrue:function(){
+    	  var that = this;
+    	  wx.showToast({
+  		title: "正在马不停蹄的开发中~",
+  		icon: 'none',
+  		duration: 3000
+    	  })
+    },
   /**
    * 获取用户信息
    */
@@ -64,7 +73,7 @@ Page({
       success: function(loginCode) {
         //调用request请求api转换登录凭证 获取poenid
         wx.request({
-          url: app.taskapi + '/Login/register',
+          url: app.taskapi + '/Login/register_member',
           header: {
             'content-type': 'application/x-www-form-urlencoded'
           },
@@ -84,13 +93,13 @@ Page({
               })
             }
             if (res.data.errcode == '200') {
-              main.set_storage('UserLogin', res.data.data);
               main.set_storage('token', res.data.data.token);
-			  if(res.data.data.session_key != ''){
-			  	   main.set_storage('sessionKey', res.data.data.session_key);
-			  }
+  			  if(res.data.data.session_key != ''){
+  			  	   main.set_storage('sessionKey', res.data.data.session_key);
+  			  }
               //获取个人账户信息
-              that.get_member_info();
+			  that.get_member_info();
+			  that.infoshujuxinxi();
             } else {
             wx.hideLoading();
   			wx.showToast({
@@ -116,7 +125,7 @@ Page({
       title: '加载中',
     })
     wx.request({
-      url: app.taskapi + '/Index/memberinfo',
+      url: app.taskapi + '/Miniapi/memberinfo',
       method: 'post',
       data: {
         token: main.get_storage('token'),
@@ -138,26 +147,54 @@ Page({
             isGrant: true,
   			userinfo: res.data.data.member,
           })
+		  console.log(123123)
         } else {
-		  wx.showToast({
-			title: res.data.errmsg,
-			icon: 'none',
-			duration: 3000
-		  })
-		  // setTimeout(function() {
-			 //   wx.switchTab({
-				//    url: '/pages/my/my',
-			 //   })
-		  // }, 2000)
+  		  wx.showToast({
+  			title: res.data.errmsg,
+  			icon: 'none',
+  			duration: 3000
+  		  })
         }
       }
     })
   },
-  go_Serve(e) {
-  	var that = this;
-  	wx.navigateTo({
-  	  url: '../grant_login/grant_login'
-  	})
+  
+  infoshujuxinxi: function() {
+    var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: app.taskapi + '/Miniapi/infoshujuxinxi',
+      method: 'post',
+      data: {
+        token: main.get_storage('token'),
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function(res) {
+        if (!res.data) {
+          wx.showToast({
+            title: '加载错误',
+            icon: 'loading',
+            duration: 10000
+          })
+        }
+        if (res.data.errcode == '200') {
+          wx.hideLoading();
+          that.setData({
+  			shujusum: res.data.data.shujusum,
+          })
+        } else {
+  		  wx.showToast({
+  			title: res.data.errmsg,
+  			icon: 'none',
+  			duration: 3000
+  		  })
+        }
+      }
+    })
   },
   
   /**
@@ -177,25 +214,27 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  var that = this;
-  //判断是否已经授权
-  wx.getSetting({
-    success: res => {
-      if (res.authSetting['scope.userInfo']) {
+ onShow: function () {
+	var that = this;
+	//判断是否已经授权
+	wx.getSetting({
+	success: res => {
+	  if (res.authSetting['scope.userInfo']) {
 		  if(main.get_storage('token')){
+			  console.log(111);
 			  //获取个人账户信息
 			  that.get_member_info();
+			  that.infoshujuxinxi();
 		  }
-      } else {
-        that.setData({
-          isGrant: false,
-          userinfo: [],
-        })
-      }
-    }
-  })
-  },
+	  } else {
+		that.setData({
+		  isGrant: false,
+		  userinfo: [],
+		})
+	  }
+	}
+	})
+ },
 
   /**
    * 生命周期函数--监听页面隐藏

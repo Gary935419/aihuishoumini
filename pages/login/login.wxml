@@ -1,0 +1,23 @@
+<!--pages/login/login.wxml-->
+<view class="login">
+  <!--自定义头部-->
+  <view class="diynav1" style="height:{{statusNavBarHeight+'px'}}">
+    <image src='../../images/banner2.png' mode="aspectFill" />
+  </view>
+  <view style="height:{{statusNavBarHeight+'px'}}"></view>
+  <view class="inner">
+    <image src='../../images/header.png' class="login_header" mode="aspectFill" />
+    <view class="login_block">
+      <view class="login_title">Hi，你好</view>
+      <view class="login_info">
+        <image src='../../images/ico12.png' mode="aspectFill" />
+        <input bindinput="bindaccountText" type="text" placeholder-style="color:#C9C9C9" placeholder="请输入账号" />
+      </view>
+      <view class="login_info">
+        <image src='../../images/ico13.png' mode="aspectFill" />
+        <input bindinput="bindpasswordText" type="password" placeholder-style="color:#C9C9C9" placeholder="请输入密码" />
+      </view>
+      <button class="login_btu" type='primary' bindtap='getUserProfile'>确认登录</button>
+    </view>
+  </view>
+</view>

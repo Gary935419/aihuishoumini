@@ -1,0 +1,55 @@
+<!--pages/citylocat/citylocat.wxml-->
+<view class="citylocat">
+  <scroll-view class="city-scroll" scroll-y="true" scroll-into-view="{{codeY}}" scroll-with-animation="true"
+    style="height:{{cityHeight}}px" bindscroll="scroll" scroll-top="{{scrollTop}}">
+    <view class="citylocat_title">当前定位</view>
+    <view class="citylocat_top">
+      <image src='../../images/ico7.png' />
+      <view>大连</view>
+    </view>
+    <view class="citylocat_title">历史浏览城市</view>
+    <view class="citylocat_box">
+      <view>沈阳</view>
+      <view>沈阳</view>
+      <view>沈阳</view>
+      <view>沈阳</view>
+    </view>
+    <view class="citylocat_title">热门城市</view>
+    <view class="citylocat_box">
+      <view>北京</view>
+      <view>上海</view>
+      <view>南京</view>
+      <view>成都</view>
+      <view>南京</view>
+      <view>成都</view>
+      <view>南京</view>
+      <view>成都</view>
+    </view>
+
+
+
+    <view class='newcar_area'>
+
+      <view class="city-box" wx:for="{{list}}" wx:key="{{item.code}}">
+        <view class="city-code" id="{{item.code}}">{{item.code}}</view>
+        <view class="city-list" wx:for="{{item.cityList}}" wx:for-item="city" bindtap="getChooseCity"
+          data-city="{{city}}">
+          <navigator class='city_link' url="../../index/index" hover-class="none">
+            <view class='city_text'>{{city.text}}</view>
+          </navigator>
+        </view>
+      </view>
+
+    </view>
+
+
+
+  </scroll-view>
+
+  <view class='newcar_word'>
+    <view bindtap="getCurrentCode" class='btn_item' wx:for="{{cityList}}" data-code="{{item.code}}"
+      data-index="{{index}}">
+      {{item.code}}
+    </view>
+  </view>
+</view>

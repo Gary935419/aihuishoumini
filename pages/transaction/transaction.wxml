@@ -1,0 +1,93 @@
+<!--pages/transaction/transaction.wxml-->
+<view class="transaction">
+  <view class="addaddress_top"></view>
+  <view class="inner">
+    <view class="transaction_block">
+      <view class="transaction_top">
+        <view class="transaction_top_box">
+          <view class="transaction_top_info">
+            <view>月份</view>
+            <image src='../../images/jian3.png' mode="aspectFill" />
+          </view>
+          <picker mode="date" value="{{date}}" fields="month" start="1996-01" end="3000-01" bindchange="changeDate">
+            <view class="tui-picker-detail">
+              {{date}}
+            </view>
+          </picker>
+        </view>
+        <view class="transaction_top_box">
+          <view class="transaction_top_info">
+            <view>日期</view>
+            <image src='../../images/jian3.png' mode="aspectFill" />
+          </view>
+          <picker bindchange="changeCountry"  value="{{countryIndex}}" range="{{countryList}}">
+            <view class="tui-picker-detail">{{countryList[countryIndex]}}</view>
+          </picker>
+        </view>
+        <view class="transaction_top_box">
+          <image src='../../images/search1.png' mode="aspectFill" />
+          <input type="text" placeholder="查询" placeholder-style="color:#FA5447" />
+        </view>
+      </view>
+      <view class="transaction_area">
+        <view class="transaction_time">
+          <image src='../../images/ico6.png' mode="aspectFill" />
+          <view>2022-03-04</view>
+        </view>
+        <view class="transaction_list">
+          <view class="transaction_item">
+            <image src='../../images/pro1.png' mode="aspectFill" />
+            <view class="transaction_box">
+              <view class="transaction_info">
+                <view class="transaction_name">纯黄纸(如空调箱)</view>
+                <view class="transaction_num">500公斤</view>
+              </view>
+              <view class="transaction_price">¥2000</view>
+            </view>
+          </view>
+          <view class="transaction_item">
+            <image src='../../images/pro1.png' mode="aspectFill" />
+            <view class="transaction_box">
+              <view class="transaction_info">
+                <view class="transaction_name">纯黄纸(如空调箱)</view>
+                <view class="transaction_num">500公斤</view>
+              </view>
+              <view class="transaction_price">¥2000</view>
+            </view>
+          </view>
+          <view class="transaction_item">
+            <image src='../../images/pro1.png' mode="aspectFill" />
+            <view class="transaction_box">
+              <view class="transaction_info">
+                <view class="transaction_name">纯黄纸(如空调箱)</view>
+                <view class="transaction_num">500公斤</view>
+              </view>
+              <view class="transaction_price">¥2000</view>
+            </view>
+          </view>
+          <view class="transaction_item">
+            <image src='../../images/pro1.png' mode="aspectFill" />
+            <view class="transaction_box">
+              <view class="transaction_info">
+                <view class="transaction_name">纯黄纸(如空调箱)</view>
+                <view class="transaction_num">500公斤</view>
+              </view>
+              <view class="transaction_price">¥2000</view>
+            </view>
+          </view>
+          <view class="transaction_item">
+            <image src='../../images/pro1.png' mode="aspectFill" />
+            <view class="transaction_box">
+              <view class="transaction_info">
+                <view class="transaction_name">纯黄纸(如空调箱)</view>
+                <view class="transaction_num">500公斤</view>
+              </view>
+              <view class="transaction_price">¥2000</view>
+            </view>
+          </view>
+        </view>
+        <view class="transaction_all">合计：<view>¥2000</view></view>
+      </view>
+    </view>
+  </view>
+</view>

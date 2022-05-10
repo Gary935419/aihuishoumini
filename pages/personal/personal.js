@@ -7,21 +7,138 @@ Page({
    * 页面的初始数据
    */
   data: {
-	  userinfo: [],
-	  id:0,
-	  imgUrl:'',
-  },
 
-/**
-   * 获取个人账户信息
-   */
+    previewImageArr: [],
+    // 性别
+    countryList: ['男','女'],
+    countryIndex: 0,
+    date: '1995-01-01',
+	userinfo:[],
+    // 证件类型：
+    countryList1: ['请选择','身份证'],
+    countryIndex1: 0,
+	truename:'',
+	mobile:'',
+	email:'',
+  },
+  // 性别
+  changeCountry(e){
+    this.setData({ countryIndex: e.detail.value});
+  },
+  //日期
+  changeDate(e){
+    this.setData({ date:e.detail.value});
+  },
+  // 证件类型：
+  changeCountry1(e){
+    this.setData({ countryIndex1: e.detail.value});
+  },
+  //头像相册
+  previewImage(e) {
+    var that = this;
+    wx.showActionSheet({
+      itemList: ['从相册中选择', '拍照选取'],
+      itemColor: "#f7982a",
+      success: function (res) {
+        console.log(res)
+        if (!res.cancel) {
+          if (res.tapIndex == 0) {
+            that.uploader('album')
+          } else if (res.tapIndex == 1) {
+            that.uploader('camera')
+          }
+        }
+      }
+    })
+  },
+  
+  uploader: function (e) {
+    var find = e
+    var that = this;
+    let maxSize = 5 * 1024 * 1024;
+    var maxLength = 1;
+    let flag = true;
+    wx.chooseImage({
+      count: 1, //最多可以选择的图片总数
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: [find], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+
+        for (let i = 0; i < res.tempFiles.length; i++) {
+          if (res.tempFiles[i].size > maxSize) {
+            flag = false;
+            wx.showModal({
+              content: '图片太大，不允许上传',
+              showCancel: false,
+              success: function (res) {
+                console.log('res')
+              }
+            });
+          }
+        }
+
+        if (res.tempFiles.length > maxLength) {
+          wx.showModal({
+            content: '最多能上传' + maxLength + '张图片',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('确定');
+              }
+            }
+          })
+        }
+
+        console.log(res.tempFilePaths)
+        if (flag == true && res.tempFiles.length <= maxLength) {
+          var imagesList = that.data.imagesList.concat(res.tempFilePaths)
+          if (imagesList.length > 1) {
+            wx.showModal({
+              content: '最多能上传1张图片',
+              showCancel: false,
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('确定');
+                }
+              }
+            })
+          } else {
+            that.setData({
+              imagesList: imagesList
+            })
+          }
+
+
+        }
+      },
+
+      fail: function (res) {
+        console.log(res);
+      }
+    })
+  },
+bindtruenameText: function(e) {
+	this.setData({
+	  truename: e.detail.value
+	})
+ },
+ bindmobileText: function(e) {
+	this.setData({
+	  mobile: e.detail.value
+	})
+  },
+  bindemailText: function(e) {
+	this.setData({
+	  email: e.detail.value
+	})
+   },
   get_member_info: function() {
     var that = this;
     wx.showLoading({
       title: '加载中',
     })
     wx.request({
-      url: app.taskapi + '/Index/memberinfoshare',
+      url: app.taskapi + '/Miniapi/memberinfo',
       method: 'post',
       data: {
         token: main.get_storage('token'),
@@ -30,9 +147,6 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function(res) {
-        if (!main.checklogin(res, 'personal')) {
-          return;
-        }
         if (!res.data) {
           wx.showToast({
             title: '加载错误',
@@ -43,107 +157,77 @@ Page({
         if (res.data.errcode == '200') {
           wx.hideLoading();
           that.setData({
-			userinfo: res.data.data.member,
-			imgUrl:res.data.data.member.mqrcode
+  			userinfo: res.data.data.member,
+			countryIndex: res.data.data.member.sex,
+			date:res.data.data.member.birthday,
+			mobile: res.data.data.member.mobile,
+			email: res.data.data.member.email,
+			truename: res.data.data.member.truename,
           })
         } else {
-			  wx.showToast({
-				title: res.data.errmsg,
-				icon: 'none',
-				duration: 3000
-			  })
-			  setTimeout(function() {
-				   wx.switchTab({
-					   url: '/pages/my/my',
-				   })
-			  }, 2000)
+  		  wx.showToast({
+  			title: res.data.errmsg,
+  			icon: 'none',
+  			duration: 3000
+  		  })
         }
-      },
-	  fail: function(res) {
-           that.get_member_info();
-      },
+      }
     })
   },
-  //去修改个人设置
-  formSubmit: function(e) {
-	   var that = this;
-	   if (that.data.id == 1) {
-	     wx.showToast({
-	   			title: '请勿重复提交!',
-	   			icon: 'none',
-	   			duration: 3000
-	     })
-	     return false;
-	   }
-	   wx.showLoading({
-	     title: '加载中',
-	   })
-	   if (!main.isMobile(e.detail.value.mobile)) {
-	     wx.showToast({
-			title: '请输入正确的手机号!',
-			icon: 'none',
-			duration: 3000
-	     })
-	     return false;
-	   }
-	   if (!main.isEmail(e.detail.value.email)) {
-	     wx.showToast({
-			title: '请输入正确的邮箱地址!',
-			icon: 'none',
-			duration: 3000
-	     })
-	     return false;
-	   }
-	   wx.request({
-	     url: app.taskapi + '/Index/memberupdatainfo',
-	     method: 'post',
-	     data: {
-	       token: main.get_storage('token'),
-		   truename: e.detail.value.truename,
-		   mobile: e.detail.value.mobile,
-		   email: e.detail.value.email,
-		   address: e.detail.value.address,
-	     },
-	     header: {
-	       'content-type': 'application/x-www-form-urlencoded'
-	     },
-	     success: function(res) {
-	       if (!main.checklogin(res, 'personal')) {
-	         return;
-	       }
-	       if (!res.data) {
-	         wx.showToast({
-	           title: '加载错误',
-	           icon: 'loading',
-	           duration: 10000
-	         })
-	       }
-	       if (res.data.errcode == '200') {
-	         wx.hideLoading();
-			 that.setData({
-			 	id: 1,
-			 })
-	         wx.showToast({
-	   	   			title: res.data.errmsg,
-	   	   			icon: 'none',
-	   	   			duration: 3000
-	          })
-	       } else {
-	   		  wx.showToast({
-	   			title: res.data.errmsg,
-	   			icon: 'none',
-	   			duration: 3000
-	   		  })
-	       }
-	     }
-	   })
+  
+  getmemberinfo: function() {
+    var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: app.taskapi + '/Miniapi/memberinfo_modify',
+      method: 'post',
+      data: {
+        token: main.get_storage('token'),
+		sex: that.data.countryIndex,
+		mobile: that.data.mobile,
+		email: that.data.email,
+		truename: that.data.truename,
+		birthday: that.data.date,
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function(res) {
+        if (!res.data) {
+          wx.showToast({
+            title: '加载错误',
+            icon: 'loading',
+            duration: 10000
+          })
+        }
+        if (res.data.errcode == '200') {
+          wx.hideLoading();
+          wx.showToast({
+  			title: res.data.errmsg,
+  			icon: 'none',
+  			duration: 3000
+          })
+        } else {
+  		  wx.showToast({
+  			title: res.data.errmsg,
+  			icon: 'none',
+  			duration: 3000
+  		  })
+        }
+      }
+    })
   },
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+   
 
-  },
+    
+ },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -156,35 +240,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  var that = this;
-  //判断是否已经授权
-  wx.getSetting({
-    success: res => {
-      if (res.authSetting['scope.userInfo']) {
-        wx.showLoading({
-          title: '加载中',
-        }),
-        that.get_member_info();
-      } else {
-        wx.showModal({
-                 title: '温馨提示',
-                 content: '当前您未授权,请立即去授权！',
-                 showCancel: true,//是否显示取消按钮
-                 cancelText:"否",//默认是“取消”
-                 cancelColor:'#111111',//取消文字的颜色
-                 confirmText:"是",//默认是“确定”
-                 confirmColor: '#111111',//确定文字的颜色
-                 success: function (res) {
-                    wx.switchTab({
-                          url: '/pages/my/my',
-                    });
-                 },
-                 // fail: function (res) { },//接口调用失败的回调函数
-                 // complete: function (res) { },//接口调用结束的回调函数（调用成功、失败都会执行）
-        });
-      }
-    }
-  })
+  	var that = this;
+  	//判断是否已经授权
+  	that.get_member_info();
   },
 
   /**

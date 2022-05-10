@@ -1,22 +1,52 @@
 <!--pages/personal/personal.wxml-->
 <view class="personal">
-  <form class="personal_form" bindsubmit="formSubmit">
-    <view class="personal_info">
-      <view>姓名</view>
-      <input type="text" name="truename" value="{{userinfo.truename}}" placeholder='请输入真实姓名' />
-    </view>
-    <view class="personal_info">
-      <view>电话</view>
-      <input type="text" name="mobile" value="{{userinfo.mobile}}" placeholder='请输入电话号' />
-    </view>
-	<view class="personal_info">
-	  <view>邮箱</view>
-	  <input type="text" name="email" value="{{userinfo.email}}" placeholder='请输入邮箱地址' />
-	</view>
-    <view class="personal_info">
-      <view>地址</view>
-      <input type="text" name="address" value="{{userinfo.address}}" placeholder='请输入联系地址' />
-    </view>
-    <button class="ques_btu" form-type="submit">确认更新</button>
-  </form>
+
+  <view class="inner">
+    <form action="" class="personal_form">
+
+      <view class="personal_info">
+        <view class="personal_title">真实姓名：</view>
+        <view class="personal_box">
+          <input type="text" placeholder="请填写" placeholder-style="color:#999999" bindinput="bindtruenameText" value="{{userinfo.truename}}"/>
+        </view>
+      </view>
+
+      <view class="personal_info">
+        <view class="personal_title">性别：</view>
+        <view class="personal_box">
+          <picker bindchange="changeCountry"  value="{{countryIndex}}" range="{{countryList}}">
+            <view>{{countryList[countryIndex]}}</view>
+          </picker>
+          <image src='../../images/jian1.png' mode="widthFix" />
+        </view>
+      </view>
+
+      <view class="personal_info">
+        <view class="personal_title">出生日期：</view>
+        <view class="personal_box">
+          <picker mode="date" value="{{date}}" bindchange="changeDate">
+            <view>{{date}}</view>
+          </picker>
+          <image src='../../images/jian1.png' mode="widthFix" />
+        </view>
+      </view>
+
+
+      <view class="personal_info">
+        <view class="personal_title">手机号码：</view>
+        <view class="personal_box">
+          <input type="text" placeholder="请填写" placeholder-style="color:#999999" bindinput="bindmobileText" value="{{userinfo.mobile}}"/>
+        </view>
+      </view>
+
+
+      <view class="personal_info">
+        <view class="personal_title">邮件地址：</view>
+        <view class="personal_box">
+          <input type="text" placeholder="请填写" placeholder-style="color:#999999" bindinput="bindemailText" value="{{userinfo.email}}"/>
+        </view>
+      </view>
+      <button class="personal_btu" bindtap='getmemberinfo'>确认提交</button>
+    </form>
+  </view>
 </view>

@@ -1,0 +1,18 @@
+<!--pages/ordertijiao/ordertijiao.wxml-->
+<view class="ordertijiao">
+  <view class="addaddress_top"></view>
+  <view class="inner">
+    <view class="ordertijiao_block">
+      <view class="ordertijiao_area">
+		  <block wx:for="{{orderlist}}" wx:index="{{index}}" wx:key='key'>
+			  <view class="ordertijiao_info">
+			    <view class="ordertijiao_text">{{item.ct_name}}</view>
+				<view class="ordertijiao_text">{{item.ct_price}}/kg</view>
+			    <input type="text" data-id="{{item.ogid}}" placeholder="请填写重量(单位kg)" placeholder-style="color:#999999" bindblur="changeInputValue"/>
+			  </view>
+		  </block>
+      </view>
+    </view>
+  </view>
+  <button class="ordertijiao_btu" bindtap='getupdatesumgoodsorder'>确认提交</button>
+</view>

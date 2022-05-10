@@ -1,0 +1,31 @@
+<!--pages/orderex/orderex.wxml-->
+<view class="orderex">
+  <view class="addaddress_top"></view>
+  <view class="inner">
+    <view class="orderex_block">
+      <view class="orderex_item">
+		<block wx:for="{{orderdetails}}" wx:index="{{index}}" wx:key='key'>
+		   <view class="orderex_area">
+			 <image src='{{item.ct_img}}' mode="aspectFill" />
+			 <view class="orderex_box">
+			   <view class="orderex_name">{{item.ct_name}}</view>
+			   <view class="orderex_num">{{item.ct_price}}/kg</view>
+			   <block wx:if="{{item.og_price > 0}}">
+			      <view class="orderex_num">重量:{{item.weight}}kg</view>
+			      <view class="orderex_num">价格:{{item.og_price}}元</view>
+			   </block>
+			   <block wx:else>
+			      <view class="orderex_num">商家目前还没有称重</view>
+			   </block>
+			 </view>
+		   </view>
+		</block>
+		
+		<block wx:if="{{isCancel < 2}}">
+		    <view class="orderex_qu" bindtap="warnModalTrue">取消订单</view>
+		</block>
+        
+      </view>
+    </view>
+  </view>
+</view>

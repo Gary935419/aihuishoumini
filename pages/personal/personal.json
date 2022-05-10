@@ -1,5 +1,6 @@
 {
-  "navigationBarBackgroundColor": "#ffffff",
-  "navigationBarTitleText": "我的个人中心" ,
-  "navigationBarTextStyle":"black"
+  "usingComponents": {},
+  "navigationBarTitleText": "个人信息",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#FF1010"
 }

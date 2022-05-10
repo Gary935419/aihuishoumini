@@ -1,68 +1,173 @@
 <!--pages/my/my.wxml-->
 <view class="my">
   <view class="my_top">
-    <view class="my_top_kuai"></view>
-    <view class="my_top_block">
-		<block wx:if="{{isGrant}}">
-		  <image src='{{userinfo.avater}}' mode="widthFix" class="my_header" />
-		  <view class="my_top_name">{{userinfo.nickname}}</view>
-		  <view class="mt_top_tel">授权账号：{{userinfo.truename}}</view>
-	    </block>
-		<block wx:else>
-			<button class='bottom' type='primary' style="color: #fff;background-color: #182864;width: 50%;" bindtap='go_Serve'>
-			  授权登录
-			</button>
+	    <block wx:if="{{isGrant}}">
+			<!--登录状态-->
+			 <view class="my_deng">
+			  <image src='{{userinfo.avater}}' mode="aspectFit" />
+			  <view class="my_deng_right">
+				<view>{{userinfo.nickname}}</view>
+			  </view>
+			</view>
 		</block>
+		<block wx:else>
+			 <!--未登录状态-->
+			 <view class="my_wei">
+			   <image src='../../images/header.png' mode="aspectFit"/>
+			   <view class="my_wei_right">
+			 	<button class="my_wei_btu" bindtap='getUserProfile'>用户登录</button>
+			 	<view>真开心能为环保公益事业献一份力</view>
+			   </view>
+			 </view>
+		</block>
+    <view class="my_top_center">
+      <view class="mt_top_list">
+        <view class="my_top_item">
+			   <view class="my_top_num">{{shujusum.sum7}}</view>
+          <view class="my_top_text">参与回收</view>
+        </view>
+        <view class="my_top_item">
+         
+             <view class="my_top_num">{{shujusum.sum8}}</view>
+          
+          <view class="my_top_text">回收商品</view>
+        </view>
+        <view class="my_top_item">
+        
+             <view class="my_top_num">{{shujusum.sum9}}</view>
+          
+          <view class="my_top_text">回收金额</view>
+        </view>
+      </view>
     </view>
   </view>
-
   <view class="inner">
-    <view class="my_list">
-      <!-- <view class="my_item">
-        <navigator class="my_link" bindtap="go_check" hover-class="none">
-          <view class="my_info">
-            <image src='../../images/my3.png' mode="widthFix" />
-            <view>vip房产报告</view>
-          </view>
-          <image src='../../images/jian4.png' mode="widthFix" />
+    <view class="my_center">
+      <view class="my_center_box">
+        <view class="my_center_title">我的订单</view>
+        <navigator url="../order/order?ostate=0" hover-class="none" class="my_center_all">
+          <view>全部订单</view>
+          <image src='../../images/jian1.png' mode="aspectFill" />
         </navigator>
       </view>
-      <view class="my_item">
-        <navigator class="my_link" url="../mykefu/mykefu" hover-class="none">
-          <view class="my_info">
-            <image src='../../images/my4.png' mode="widthFix" />
-            <view>我的专享客服</view>
-          </view>
-          <image src='../../images/jian4.png' mode="widthFix" />
+      <view class="my_center_list">
+        <navigator class="my_center_item" url="../order/order?ostate=1" hover-class="none">
+          <image src='../../images/my1.png' mode="aspectFill" />
+          <view class="my_center_text">已预约</view>
+		  <block wx:if="{{shujusum.sum1 > 0}}">
+             <view class="my_center_num">{{shujusum.sum1}}</view>
+		  </block>
         </navigator>
-      </view> -->
-      <!-- <view class="my_item">
-        <navigator class="my_link" url="../personal/personal" hover-class="none">
-          <view class="my_info">
-            <image src='../../images/my5.png' mode="widthFix" />
-            <view>我的个人信息</view>
-          </view>
-          <image src='../../images/jian4.png' mode="widthFix" />
+        <navigator class="my_center_item" url="../order/order?ostate=2" hover-class="none">
+          <image src='../../images/my2.png' mode="aspectFill" />
+          <view class="my_center_text">待回收</view>
+          <block wx:if="{{shujusum.sum2 > 0}}">
+             <view class="my_center_num">{{shujusum.sum2}}</view>
+          </block>
         </navigator>
-      </view> -->
-      <!-- <view class="my_item">
-        <navigator class="my_link" url="../question/question" hover-class="none">
-          <view class="my_info">
-            <image src='../../images/my6.png' mode="widthFix" />
-            <view>我的提问</view>
-          </view>
-          <image src='../../images/jian4.png' mode="widthFix" />
+        <navigator class="my_center_item" url="../order/order?ostate=3" hover-class="none">
+          <image src='../../images/my3.png' mode="aspectFill" />
+          <view class="my_center_text">已完成</view>
+          <block wx:if="{{shujusum.sum3 > 0}}">
+             <view class="my_center_num">{{shujusum.sum3}}</view>
+          </block>
+        </navigator>
+        <navigator class="my_center_item" url="../order/order?ostate=4" hover-class="none">
+          <image src='../../images/my4.png' mode="aspectFill" />
+          <view class="my_center_text">已取消</view>
+          <block wx:if="{{shujusum.sum4 > 0}}">
+             <view class="my_center_num">{{shujusum.sum4}}</view>
+          </block>
         </navigator>
       </view>
-      <view class="my_item">
-        <navigator class="my_link" url="../meorder/meorder" hover-class="none">
-          <view class="my_info">
-            <image src='../../images/my7.png' mode="widthFix" />
-            <view>我的购买报告</view>
+    </view>
+
+    <view class="my_achievement">
+      <view class="my_center_title">我的成就</view>
+      <view class="my_achievement_block">
+        <view class="my_achievement_area">
+          <view class="my_achievement_box">
+            <view class="my_achievement_text">已获回收基金</view>
+            <view class="my_achievement_num">
+				<block wx:if="{{shujusum.sum5 > 0}}">
+				   <view>{{shujusum.sum5}}</view>元
+				</block>
+				<block wx:else>
+				   <view>0</view>元
+				</block>
+			</view>
           </view>
-          <image src='../../images/jian4.png' mode="widthFix" />
+          <image src='../../images/my5.png' mode="aspectFill" />
+        </view>
+        <view class="my_achievement_area">
+          <view class="my_achievement_box">
+            <view class="my_achievement_text">活动中心</view>
+            <navigator class="my_achievement_num" bindtap="warncostatenoTrue" hover-class="none">查看专属福利</navigator>
+          </view>
+          <image src='../../images/my6.png' mode="aspectFill" />
+        </view>
+      </view>
+      <view class="my_achievement_bottom">
+        <view class="my_achievement_left">
+          <view class="my_achievement_info">
+            <view>您已减排</view>
+            <!-- <navigator url="../none/none" hover-class="none">
+              <image src='../../images/ico5.png' mode="aspectFill" />
+            </navigator> -->
+          </view>
+          <view class="my_achievement_bottom_num">
+			  <block wx:if="{{shujusum.sum6 > 0}}">
+			    <view>{{shujusum.sum6}}</view>kgCO2e
+			  </block>
+			  <block wx:else>
+			     <view>0</view>kgCO2e
+			  </block>
+			  
+		  </view>
+        </view>
+        <view class="my_achievement_right">
+          <image src='../../images/my7.png' mode="aspectFill" />
+          <image src='../../images/my7.png' mode="aspectFill" />
+          <image src='../../images/my7.png' mode="aspectFill" />
+        </view>
+      </view>
+    </view>
+    <view class="my_member">
+      <view class="my_center_title">会员服务</view>
+      <view class="my_member_list">
+        <navigator class="my_member_link" url="../withdrawaluser/withdrawaluser" hover-class="none">
+          <image src='../../images/my8.png' mode="aspectFill" />
+          <view>我的钱包</view>
         </navigator>
-      </view> -->
+       <!-- <navigator class="my_member_link" url="../list/list" hover-class="none">
+          <image src='../../images/my9.png' mode="aspectFill" />
+          <view>我的福利</view>
+        </navigator> -->
+        <navigator class="my_member_link" url="../personal/personal" hover-class="none">
+          <image src='../../images/my10.png' mode="aspectFill" />
+          <view>个人信息</view>
+        </navigator>
+        <!-- <navigator class="my_member_link" url="../list/list" hover-class="none">
+          <image src='../../images/my12.png' mode="aspectFill" />
+          <view>联系客服</view>
+        </navigator> -->
+        <navigator class="my_member_link" url="../address/address" hover-class="none">
+          <image src='../../images/my13.png' mode="aspectFill" />
+          <view>地址管理</view>
+        </navigator>
+        <navigator class="my_member_link" url="../login/login" hover-class="none">
+          <image src='../../images/my14.png' mode="aspectFill" />
+          <view>商家入口</view>
+        </navigator>
+		<!-- <navigator class="my_member_link" url="../list/list" hover-class="none">
+		  <image src='../../images/my11.png' mode="aspectFill" />
+		  <view>关于我们</view>
+		</navigator> -->
+       <!-- <navigator class="my_member_link" url="../list/list" hover-class="none">
+          <image src='../../images/my15.png' mode="aspectFill" />
+          <view>平台招募</view>
+        </navigator> -->
+      </view>
     </view>
   </view>
 </view>
