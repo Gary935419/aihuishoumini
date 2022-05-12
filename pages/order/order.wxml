@@ -65,6 +65,15 @@
 				   </block>
 				 </view>
 				 <view class="order_info">
+				   <view class="order_title">下单方式</view>
+				   <block wx:if="{{item.order_status != 1}}">
+				      <view class="order_text">正常下单</view>
+				   </block>
+				   <block wx:else>
+				      <view class="order_text">一键下单</view>
+				   </block>
+				 </view>
+				 <view class="order_info">
 				   <view class="order_title">订单价格</view>
 				   <block wx:if="{{item.sum_price != 0}}">
 				      <view class="order_text">{{item.sum_price}}元</view>
@@ -73,11 +82,14 @@
 				      <view class="order_text">商家目前还没有称重</view>
 				   </block>
 				 </view>
-				 <block wx:if="{{item.order_status != 1}}">
+				 <navigator url="../orderex/orderex?oid={{item.oid}}&isCancel={{item.ostate}}" hover-class="none">
+				    <view class="order_look">查看详情</view>
+				 </navigator>
+				 <!-- <block wx:if="{{item.order_status != 1}}">
 					<navigator url="../orderex/orderex?oid={{item.oid}}&isCancel={{item.ostate}}" hover-class="none">
 			           <view class="order_look">查看详情</view>
 					</navigator>
-				 </block>
+				 </block> -->
 			   </view>
 		  </block>
       </view>

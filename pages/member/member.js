@@ -48,7 +48,16 @@ get_member_info: function() {
 	  }
     })
   },
-  
+  gomemberinfopage:function(){
+    	  var that = this;
+    	  wx.showLoading({
+    	    title: '加载中',
+    	  })
+		  main.remove_storage('merchants_token');
+    	  wx.switchTab({
+    	    url: '/pages/my/my',
+    	  })
+    },
   infoshujuxinxi: function() {
     var that = this;
     wx.showLoading({

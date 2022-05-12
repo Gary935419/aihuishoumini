@@ -41,6 +41,9 @@
 			    </block>
 			  </view>
 			  <block wx:if="{{item.sum_price == 0}}">
+				  <navigator url="../projectmerchants/projectmerchants?oid={{item.oid}}" style="margin-right: 16px;" hover-class="none">
+				      <view class="order_look">去补货</view>
+				  </navigator>
 			  		<navigator url="../ordertijiao/ordertijiao?oid={{item.oid}}" hover-class="none">
 			            <view class="order_look">设置重量</view>
 			  		</navigator>
@@ -52,15 +55,15 @@
   </view>
   <view class="blank70"></view>
   <view class="orderlist_bottom">
-    <navigator class="orderlist_link orderlist_on" url="../orderlist/orderlist" hover-class="none">
+    <navigator class="orderlist_link orderlist_on" open-type="redirect" url="../orderlist/orderlist" hover-class="none">
       <image src='../../images/nav10.png' mode="aspectFill" />
       <view>订单查看</view>
     </navigator>
-    <navigator class="orderlist_link" url="../withdrawal/withdrawal" hover-class="none">
+    <navigator class="orderlist_link" open-type="redirect" url="../withdrawal/withdrawal" hover-class="none">
       <image src='../../images/nav8.png' mode="aspectFill" />
       <view>申请提现</view>
     </navigator>
-    <navigator class="orderlist_link" url="../member/member" hover-class="none">
+    <navigator class="orderlist_link" open-type="redirect" url="../member/member" hover-class="none">
       <image src='../../images/nav9.png' mode="aspectFill" />
       <view>会员中心</view>
     </navigator>

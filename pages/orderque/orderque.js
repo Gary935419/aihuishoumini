@@ -19,10 +19,7 @@ Page({
 	otype:0,
 	note:'',
 	isGrant:true,
-	items: [
-	      {name: '自己送货', value: '0', checked: 'true'},
-	      {name: '上门取货', value: '1'}
-	    ]
+	items: []
   },
   radioChange: function(e) {
 	  if(e.detail.value == 1){
@@ -117,7 +114,8 @@ console.log(dateArr)
         if (res.data.errcode == '200') {
           wx.hideLoading();
           that.setData({
-  			merchantsinfo: res.data.data.merchants
+  			merchantsinfo: res.data.data.merchants,
+			items: res.data.data.sendyourself_arr
           })
         } else {
   		  wx.showToast({

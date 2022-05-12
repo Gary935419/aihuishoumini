@@ -139,18 +139,10 @@
           <image src='../../images/my8.png' mode="aspectFill" />
           <view>我的钱包</view>
         </navigator>
-       <!-- <navigator class="my_member_link" url="../list/list" hover-class="none">
-          <image src='../../images/my9.png' mode="aspectFill" />
-          <view>我的福利</view>
-        </navigator> -->
         <navigator class="my_member_link" url="../personal/personal" hover-class="none">
           <image src='../../images/my10.png' mode="aspectFill" />
           <view>个人信息</view>
         </navigator>
-        <!-- <navigator class="my_member_link" url="../list/list" hover-class="none">
-          <image src='../../images/my12.png' mode="aspectFill" />
-          <view>联系客服</view>
-        </navigator> -->
         <navigator class="my_member_link" url="../address/address" hover-class="none">
           <image src='../../images/my13.png' mode="aspectFill" />
           <view>地址管理</view>
@@ -159,14 +151,22 @@
           <image src='../../images/my14.png' mode="aspectFill" />
           <view>商家入口</view>
         </navigator>
-		<!-- <navigator class="my_member_link" url="../list/list" hover-class="none">
+		<navigator class="my_member_link" url="../none/none" hover-class="none">
+		  <image src='../../images/my12.png' mode="aspectFill" />
+		  <view>意见反馈</view>
+		</navigator>
+		<navigator class="my_member_link" url="../none/none" hover-class="none">
+		  <image src='../../images/my12.png' mode="aspectFill" />
+		  <view>联系客服</view>
+		</navigator>
+		<navigator class="my_member_link" url="../none/none" hover-class="none">
 		  <image src='../../images/my11.png' mode="aspectFill" />
 		  <view>关于我们</view>
-		</navigator> -->
-       <!-- <navigator class="my_member_link" url="../list/list" hover-class="none">
+		</navigator>
+        <navigator class="my_member_link" url="../none/none" hover-class="none">
           <image src='../../images/my15.png' mode="aspectFill" />
           <view>平台招募</view>
-        </navigator> -->
+        </navigator>
       </view>
     </view>
   </view>

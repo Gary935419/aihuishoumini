@@ -16,7 +16,26 @@ Page({
 	merchantsinfo:[],
 	addressinfo:[],
 	classtwoinfo:[],
-	note:''
+	otype:0,
+	note:'',
+	isGrant:true,
+	items: [
+	      {name: '自己送货', value: '0', checked: 'true'},
+	      {name: '上门取货', value: '1'}
+	    ]
+  },
+  radioChange: function(e) {
+	  if(e.detail.value == 1){
+		  this.setData({
+		    otype: e.detail.value,
+			isGrant: false
+		  });
+	  }else{
+		  this.setData({
+		    otype: e.detail.value,
+		    isGrant: true
+		  });
+	  }
   },
   //删除
   warnModalTrue(){
@@ -78,7 +97,7 @@ console.log(dateArr)
       title: '加载中',
     })
     wx.request({
-      url: app.taskapi + '/Miniapi/merchantsinfo',
+      url: app.taskapi + '/Miniapi/merchantsinfonew',
       method: 'post',
       data: {
         token: main.get_storage('token'),
@@ -203,7 +222,7 @@ console.log(dateArr)
 		  var delivery_date = arr1[0][arr2[0]]+'-'+arr1[1][arr2[1]]+'-'+arr1[2][arr2[2]];
 		  var delivery_time = arr1[3][arr2[3]]+':'+arr1[4][arr2[4]];
     	  wx.request({
-  			url: app.taskapi + '/Miniapi/order_insert_go',
+  			url: app.taskapi + '/Miniapi/order_insert',
     	    method: 'post',
     	    data: {
     	      token: main.get_storage('token'),
@@ -215,6 +234,7 @@ console.log(dateArr)
 			  muser: that.data.merchantsinfo.mename,
 			  maddress: that.data.merchantsinfo.meaddress,
 			  meid: that.data.meid,
+			  otype: that.data.otype,
 			  ct_ids:JSON.stringify(main.get_storage('ct_ids')),
     	    },
     	    header: {
@@ -236,6 +256,7 @@ console.log(dateArr)
   			    duration: 2000,
   			    success: function () {
   			      setTimeout(function() {
+					main.remove_storage('ct_ids');
   			        wx.navigateTo({
   			          url: '/pages/order/order',
   			        })
