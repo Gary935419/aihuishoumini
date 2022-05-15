@@ -14,5 +14,12 @@
       </view>
     </view>
   </view>
+  <view class="orderque_captiopn">
+    <image src='../../images/my11.png' mode="aspectFill" />
+    <view>温馨提示：补货处理请选择您要补货的分类，已经存在的分类将不会再次补货进来。谢谢！
+    </view>
+  </view>
+  <button class="ordertijiao_btu" style="bottom: 150rpx;background: #4CAF50;" bindtap='gobuhuo'>补货</button>
   <button class="ordertijiao_btu" bindtap='getupdatesumgoodsorder'>确认提交</button>
+  
 </view>

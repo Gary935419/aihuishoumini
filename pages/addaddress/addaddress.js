@@ -90,7 +90,7 @@ bindaddressText: function(e) {
    			    duration: 2000,
    			    success: function () {
    			      setTimeout(function() {
-   			        wx.navigateTo({
+   			        wx.redirectTo({
    			          url: '/pages/address/address',
    			        })
    			      }, 2000);

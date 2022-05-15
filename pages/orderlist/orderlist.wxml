@@ -3,15 +3,15 @@
   <view class="addaddress_top"></view>
   <view class="inner">
     <view class="orderlist_block">
-      <view class="orderlist_time">
-        <view class="orderlist_time_text">日期</view>
-        <picker mode="date" value="{{date}}" bindchange="changeDate">
-          <image src='../../images/jian1.png' mode="aspectFill" />
-          <view class="tui-picker-detail">
-           {{date}}
-          </view>
-        </picker>
-      </view>
+		<picker mode="date" value="{{date}}" bindchange="changeDate">
+		  <view class="orderlist_time">
+			<view class="orderlist_time_text">日期</view>
+			  <view class="tui-picker-detail">
+			   {{date}}
+			  </view>
+			  <image src='../../images/jian1.png' mode="aspectFill" />
+		  </view>
+	   </picker>
       <view class="orderlist_list">
 		  <block wx:for="{{orderlist}}" wx:index="{{index}}" wx:key='key'>
 			<view class="order_link" hover-class="none">
@@ -32,6 +32,10 @@
 				<view class="order_text">{{item.address}}</view>
 			  </view>
 			  <view class="order_info">
+				<view class="order_title">订单状态</view>
+				<view class="order_text">{{item.ostate}}</view>
+			  </view>
+			  <view class="order_info">
 			    <view class="order_title">订单价格</view>
 			    <block wx:if="{{item.sum_price != 0}}">
 			       <view class="order_text">{{item.sum_price}}元</view>
@@ -41,11 +45,11 @@
 			    </block>
 			  </view>
 			  <block wx:if="{{item.sum_price == 0}}">
-				  <navigator url="../projectmerchants/projectmerchants?oid={{item.oid}}" style="margin-right: 16px;" hover-class="none">
+				  <!-- <navigator url="../projectmerchants/projectmerchants?oid={{item.oid}}" style="margin-right: 16px;" hover-class="none">
 				      <view class="order_look">去补货</view>
-				  </navigator>
+				  </navigator> -->
 			  		<navigator url="../ordertijiao/ordertijiao?oid={{item.oid}}" hover-class="none">
-			            <view class="order_look">设置重量</view>
+			            <view class="order_look">填写重量</view>
 			  		</navigator>
 			  </block>
 			</view>

@@ -6,6 +6,8 @@
     "pages/businessfirm/businessfirm",
     "pages/member/member",
     "pages/my/my",
+	"pages/news/news",
+	"pages/news_ex/news_ex",
     "pages/none/none",
     "pages/addaddress/addaddress",
     "pages/order/order",
@@ -27,6 +29,9 @@
     "pages/orderque/orderque",
 	"pages/projectmerchants/projectmerchants",
     "pages/orderquego/orderquego",
+	"pages/opinion/opinion",
+	"pages/infomation/infomation",
+	"pages/wywithdrawaluser/wywithdrawaluser",
     "pages/logs/logs"
   ],
   "window": {

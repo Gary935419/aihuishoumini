@@ -1,0 +1,13 @@
+
+
+<import src="../../wxParse/wxParse.wxml" />
+<view class="none" style="padding: 0rpx 0;">
+  <view class="inner">
+	  <view class="news_ex_title" style="font-size: 40rpx;font-weight: bold;">{{goodsdetails.ntitle}}</view>
+	  <view class="news_ex_time">{{goodsdetails.addtime}}</view>
+    <view class="none_text" style="margin-top: 15px;">
+		<template is="wxParse" decode="{{true}}" data="{{wxParseData:article.nodes}}" />
+	</view>
+	<view style="margin-top: 20px;padding: 10px 8px;"></view>
+  </view>
+</view>

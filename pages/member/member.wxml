@@ -29,7 +29,7 @@
           <view class="member_area_text">回收金额</view>
         </view>
         <view class="member_area_box">
-          <view class="member_area_num">{{shujusum.sum3}}</view>
+          <view class="member_area_num">{{merchantsInfo.me_wallet}}</view>
           <view class="member_area_text">赚取金额</view>
         </view>
         <view class="member_area_box">
@@ -37,28 +37,35 @@
           <view class="member_area_text">提现金额</view>
         </view>
       </view>
-      <view class="member_list">
-        <!-- <navigator class="member_link" bindtap="warncostatenoTrue" hover-class="none">
-          <view>交易记录</view>
-          <image src='../../images/jian1.png' mode="aspectFill" />
-        </navigator> -->
-        <navigator class="member_link" url="../list/list" hover-class="none">
-          <view>提现记录</view>
-          <image src='../../images/jian1.png' mode="aspectFill" />
-        </navigator>
-		<navigator class="member_link" bindtap='gomemberinfopage' hover-class="none">
-		  <view>账号退出</view>
-		  <image src='../../images/jian1.png' mode="aspectFill" />
+	  <view class="my_member">
+	    <view class="my_center_title">会员服务</view>
+	    <view class="my_member_list">
+		<navigator class="my_member_link" bindtap='gomemberinfopage'>
+		<image src='../../images/my13.png' mode="aspectFill" />
+		<view>账号退出</view>
 		</navigator>
-        <!-- <navigator class="member_link" url="../list/list" hover-class="none">
-          <view>商家等级</view>
-          <image src='../../images/jian1.png' mode="aspectFill" />
-        </navigator>
-        <navigator class="member_link" url="../list/list" hover-class="none">
-          <view>通知公告</view>
-          <image src='../../images/jian1.png' mode="aspectFill" />
-        </navigator> -->
-      </view>
+		<navigator class="my_member_link" url="../list/list" hover-class="none">
+		<image src='../../images/my8.png' mode="aspectFill" />
+		<view>提现记录</view>
+		</navigator>
+		<navigator class="my_member_link" catchtap='freeTell'>
+		<image src='../../images/my12.png' mode="aspectFill" />
+		<view>联系客服</view>
+		</navigator>
+		<navigator class="my_member_link" url="../infomation/infomation?id=1" hover-class="none">
+		<image src='../../images/my11.png' mode="aspectFill" />
+		<view>关于我们</view>
+		</navigator>
+		<navigator class="my_member_link" url="../infomation/infomation?id=2" hover-class="none">
+		<image src='../../images/my15.png' mode="aspectFill" />
+		<view>平台招募</view>
+		</navigator>
+		<navigator class="my_member_link" bindtap='gofullmsg'>
+		<image src='../../images/my11.png' mode="aspectFill" />
+		<view>满仓提醒</view>
+		</navigator>
+	    </view>
+	  </view>
     </view>
   </view>
   <view class="blank70"></view>

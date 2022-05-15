@@ -19,9 +19,13 @@ Page({
   	})
 	this.getupdategoodsorder();
    },
-   
+   gobuhuo:function(){
+     	 var that = this;
+     	 wx.navigateTo({
+     	   url: '/pages/projectmerchants/projectmerchants?oid='+that.data.oid,
+     	 })
+     },
    getupdatesumgoodsorder:function(){
-	   console.log(333)
      	  var that = this;
      	  wx.showLoading({
      	    title: '加载中',

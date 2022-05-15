@@ -11,8 +11,14 @@ Page({
 	userinfo: [],
 	back_path: 'my',
 	shujusum:[],
+	setarr:[],
   },
-
+freeTell: function(){
+	var that = this;
+	wx.makePhoneCall({
+	  phoneNumber: that.data.setarr.customer_tel,
+	})
+},
 getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
     wx.getUserProfile({
@@ -63,6 +69,12 @@ getUserProfile(e) {
   		duration: 3000
     	  })
     },
+	gonews:function(){
+	  	  var that = this;
+	  	 wx.navigateTo({
+	  	   url: '/pages/news/news',
+	  	 })
+	  },
   /**
    * 获取用户信息
    */
@@ -197,6 +209,44 @@ getUserProfile(e) {
     })
   },
   
+  get_set_info: function() {
+    var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: app.taskapi + '/Miniapi/get_set_info',
+      method: 'post',
+      data: {
+        token: main.get_storage('token'),
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function(res) {
+        if (!res.data) {
+          wx.showToast({
+            title: '加载错误',
+            icon: 'loading',
+            duration: 10000
+          })
+        }
+        if (res.data.errcode == '200') {
+          wx.hideLoading();
+          that.setData({
+  			setarr: res.data.data.setarr,
+          })
+        } else {
+  		  wx.showToast({
+  			title: res.data.errmsg,
+  			icon: 'none',
+  			duration: 3000
+  		  })
+        }
+      }
+    })
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -216,6 +266,7 @@ getUserProfile(e) {
    */
  onShow: function () {
 	var that = this;
+	that.get_set_info();
 	//判断是否已经授权
 	wx.getSetting({
 	success: res => {

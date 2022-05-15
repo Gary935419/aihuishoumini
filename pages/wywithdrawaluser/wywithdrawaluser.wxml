@@ -1,0 +1,20 @@
+<!--pages/address/address.wxml-->
+<view class="address">
+  <radio-group>
+    <view class="address_list">
+	  <block wx:for="{{orderlist}}" wx:index="{{index}}" wx:key='key'>
+		  <view class="address_item">
+		    <view class="address_block">
+		      <view class="address_box">
+		        <view class="address_name">赚取金额：<view>{{item.sum_price}}元</view></view>
+		      </view>
+			  <view class="address_box">
+			    <view class="address_name">商家名称：<view>{{item.muser}}</view></view>
+			  </view>
+			  <view class="address_title" style="float: right;">{{item.addtime}}</view>
+		    </view>
+		  </view>
+	  </block>
+    </view>
+  </radio-group>
+</view>

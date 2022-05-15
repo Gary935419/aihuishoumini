@@ -34,7 +34,7 @@
         </view>
         <view class="my_top_item">
         
-             <view class="my_top_num">{{shujusum.sum9}}</view>
+             <view class="my_top_num">{{userinfo.wallet}}</view>
           
           <view class="my_top_text">回收金额</view>
         </view>
@@ -99,10 +99,10 @@
           </view>
           <image src='../../images/my5.png' mode="aspectFill" />
         </view>
-        <view class="my_achievement_area">
+        <view class="my_achievement_area" bindtap="gonews">
           <view class="my_achievement_box">
             <view class="my_achievement_text">活动中心</view>
-            <navigator class="my_achievement_num" bindtap="warncostatenoTrue" hover-class="none">查看专属福利</navigator>
+            <view class="my_achievement_num">查看专属福利</view>
           </view>
           <image src='../../images/my6.png' mode="aspectFill" />
         </view>
@@ -139,6 +139,10 @@
           <image src='../../images/my8.png' mode="aspectFill" />
           <view>我的钱包</view>
         </navigator>
+		<navigator class="my_member_link" url="../wywithdrawaluser/wywithdrawaluser" hover-class="none">
+		  <image src='../../images/my13.png' mode="aspectFill" />
+		  <view>我的收款</view>
+		</navigator>
         <navigator class="my_member_link" url="../personal/personal" hover-class="none">
           <image src='../../images/my10.png' mode="aspectFill" />
           <view>个人信息</view>
@@ -151,19 +155,19 @@
           <image src='../../images/my14.png' mode="aspectFill" />
           <view>商家入口</view>
         </navigator>
-		<navigator class="my_member_link" url="../none/none" hover-class="none">
+		<navigator class="my_member_link" url="../opinion/opinion" hover-class="none">
 		  <image src='../../images/my12.png' mode="aspectFill" />
 		  <view>意见反馈</view>
 		</navigator>
-		<navigator class="my_member_link" url="../none/none" hover-class="none">
+		<navigator class="my_member_link" catchtap='freeTell'>
 		  <image src='../../images/my12.png' mode="aspectFill" />
 		  <view>联系客服</view>
 		</navigator>
-		<navigator class="my_member_link" url="../none/none" hover-class="none">
+		<navigator class="my_member_link" url="../infomation/infomation?id=1" hover-class="none">
 		  <image src='../../images/my11.png' mode="aspectFill" />
 		  <view>关于我们</view>
 		</navigator>
-        <navigator class="my_member_link" url="../none/none" hover-class="none">
+        <navigator class="my_member_link" url="../infomation/infomation?id=2" hover-class="none">
           <image src='../../images/my15.png' mode="aspectFill" />
           <view>平台招募</view>
         </navigator>

@@ -1,0 +1,18 @@
+<!--pages/orderque/orderque.wxml-->
+<view class="orderque">
+  <view class="addaddress_top"></view>
+  <view class="inner">
+    
+    <view class="orderque_bei" style="margin-top: 100px;">
+      <view>反馈内容</view>
+      <textarea bindinput="bindnoteText" placeholder="请输入反馈信息"></textarea>
+    </view>
+    <view class="orderque_captiopn">
+      <image src='../../images/my11.png' mode="aspectFill" />
+      <view>希望你们能给我们提供宝贵的意见！谢谢！
+      </view>
+    </view>
+
+    <view class="orderque_btu" bindtap="sendorder">确认提交</view>
+  </view>
+</view>

@@ -1,0 +1,19 @@
+<!--pages/news/news.wxml-->
+<view class="news">
+  <view class="inner">
+    <view class="news_list">
+		<block wx:for="{{newlist}}" wx:index="{{index}}" wx:key='key'>
+		  <view class="news_item">
+			<navigator class="news_link" url="../news_ex/news_ex?id={{item.nid}}" hover-class="none">
+			  <view class="news_area">
+				<view class="news_title">{{item.ntitle}}</view>
+				<view class="news_time">{{item.addtime}}</view>
+			  </view>
+			  <image src='{{item.listimg}}' mode="widthFix" />
+			</navigator>
+		  </view>
+		</block>
+    </view>
+  </view>
+</view>
+
