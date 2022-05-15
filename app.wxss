@@ -1776,7 +1776,7 @@ view.orderque_top_area:last-of-type {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 30rpx 0;
+  margin: 40rpx 0;
 }
 .index_new image {
   width: 10%;

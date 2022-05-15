@@ -114,8 +114,7 @@ console.log(dateArr)
         if (res.data.errcode == '200') {
           wx.hideLoading();
           that.setData({
-  			merchantsinfo: res.data.data.merchants,
-			items: res.data.data.sendyourself_arr
+  			merchantsinfo: res.data.data.merchants
           })
         } else {
   		  wx.showToast({
@@ -271,6 +270,47 @@ console.log(dateArr)
     	    }
     	  })
     },
+	/**
+	 * 获取个人账户信息
+	 */
+	get_member_info: function() {
+	  var that = this;
+	  wx.showLoading({
+	    title: '加载中',
+	  })
+	  wx.request({
+	    url: app.taskapi + '/Miniapi/memberinfo',
+	    method: 'post',
+	    data: {
+	      token: main.get_storage('token'),
+	    },
+	    header: {
+	      'content-type': 'application/x-www-form-urlencoded'
+	    },
+	    success: function(res) {
+	      if (!res.data) {
+	        wx.showToast({
+	          title: '加载错误',
+	          icon: 'loading',
+	          duration: 10000
+	        })
+	      }
+	      if (res.data.errcode == '200') {
+	        wx.hideLoading();
+	        that.setData({
+	          items: res.data.data.sendyourself_arr
+	        })
+			  console.log(123123)
+	      } else {
+			  wx.showToast({
+				title: res.data.errmsg,
+				icon: 'none',
+				duration: 3000
+			  })
+	      }
+	    }
+	  })
+	},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -284,6 +324,7 @@ console.log(dateArr)
   onShow: function () {
 	var that = this;
 	console.log(main.get_storage('ct_ids'));
+	that.get_member_info();
 	this.setData({
 	  meid: main.get_storage('meid'),
 	  a_id:main.get_storage('a_id'),

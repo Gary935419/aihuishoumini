@@ -61,7 +61,7 @@ function dateTimePicker(startYear,endYear,date) {
   dateTimeArray[0] = getLoopArray(start,end);
   dateTimeArray[1] = getLoopArray(1, 12);
   dateTimeArray[2] = getMonthDay(defaultDate[0], defaultDate[1]);
-  dateTimeArray[3] = getLoopArray(0, 23);
+  dateTimeArray[3] = getLoopArray(0, 12);
   dateTimeArray[4] = getLoopArray(0, 59);
   dateTimeArray[5] = getLoopArray(0, 59);
 

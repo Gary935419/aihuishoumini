@@ -27,7 +27,7 @@ Page({
     })
   },
   gosendorder() {
-    wx.switchTab({
+    wx.navigateTo({
       url: '../project/project'
     })
   },
