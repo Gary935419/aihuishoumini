@@ -40,7 +40,7 @@
     </navigator>
     <navigator class="orderlist_link" open-type="redirect" url="../member/member" hover-class="none">
       <image src='../../images/nav9.png' mode="aspectFill" />
-      <view>会员中心</view>
+      <view>商家中心</view>
     </navigator>
   </view>
 </view>

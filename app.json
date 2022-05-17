@@ -15,6 +15,7 @@
     "pages/orderex/orderex",
     "pages/login/login",
     "pages/orderlist/orderlist",
+	"pages/orderlistheji/orderlistheji",
     "pages/transaction/transaction",
     "pages/withdrawal/withdrawal",
 	"pages/withdrawaluser/withdrawaluser",

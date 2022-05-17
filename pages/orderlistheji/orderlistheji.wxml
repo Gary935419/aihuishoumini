@@ -1,0 +1,39 @@
+<!--pages/orderlist/orderlist.wxml-->
+<view class="orderlist">
+  <view class="addaddress_top"></view>
+  <view class="inner">
+    <view class="orderlist_block">
+		<picker mode="date" value="{{date}}" bindchange="changeDate">
+		  <view class="orderlist_time">
+			<view class="orderlist_time_text">日期</view>
+			  <view class="tui-picker-detail">
+			   {{date}}
+			  </view>
+			  <image src='../../images/jian1.png' mode="aspectFill" />
+		  </view>
+	   </picker>
+	   <view class="ordertijiao_block">
+	       <view class="ordertijiao_area">
+	   		  <block wx:for="{{orderlist}}" wx:index="{{index}}" wx:key='key'>
+	   			  <view class="ordertijiao_info">
+	   			    <view class="ordertijiao_text">{{item.ct_name}}</view>
+	   				<view class="ordertijiao_text">{{item.m_weight}}kg</view>
+					<view class="ordertijiao_text">{{item.price}}/kg</view>
+					<view class="ordertijiao_text">{{item.m_weight * item.price}}元</view>
+	   			    <!-- <input type="text" data-id="{{item.omid}}" placeholder="请填写重量(单位kg)" placeholder-style="color:#999999" bindblur="changeInputValue"/> -->
+	   			  </view>
+	   		  </block>
+	       </view>
+	    </view>
+    </view>
+  </view>
+  <view class="blank60"></view>
+  <view class="project_bottom">
+    <view class="project_bottom_box">
+      <image src='../../images/ico8.png' mode="aspectFill" />
+      <view class="project_bottom_info">
+        <view class="project_bottom_num"><view style="font-size: 20px;">合计:{{price}}元</view></view>
+      </view>
+    </view>
+  </view>
+</view>

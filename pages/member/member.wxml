@@ -60,6 +60,10 @@
 		<image src='../../images/my15.png' mode="aspectFill" />
 		<view>平台招募</view>
 		</navigator>
+		<navigator class="my_member_link" url="../orderlistheji/orderlistheji" hover-class="none">
+		<image src='../../images/my8.png' mode="aspectFill" />
+		<view>订单合计</view>
+		</navigator>
 		<navigator class="my_member_link" bindtap='gofullmsg'>
 		<image src='../../images/my11.png' mode="aspectFill" />
 		<view>满仓提醒</view>
