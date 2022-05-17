@@ -40,7 +40,7 @@
 			       <view class="order_text">目前还没有称重</view>
 			    </block>
 			  </view>
-			  <block wx:if="{{item.q_weight == 0}}">
+			  <block wx:if="{{item.q_weight == 0 || item.q_weight == '' || item.q_weight == null}}">
 				  <!-- <navigator url="../projectmerchants/projectmerchants?oid={{item.oid}}" style="margin-right: 16px;" hover-class="none">
 				      <view class="order_look">去补货</view>
 				  </navigator> -->
@@ -55,12 +55,12 @@
   </view>
   <view class="blank70"></view>
   <view class="orderlist_bottom">
-    <navigator class="orderlist_link" open-type="redirect" url="../orderlistqishou/orderlistqishou" hover-class="none">
-      <image src='../../images/nav7.png' mode="aspectFill" />
+    <navigator class="orderlist_link orderlist_on" open-type="redirect" url="../orderlistqishou/orderlistqishou" hover-class="none">
+      <image src='../../images/nav10.png' mode="aspectFill" />
       <view>订单查看</view>
     </navigator>
-    <navigator class="orderlist_link orderlist_on" open-type="redirect" url="../memberqishou/memberqishou" hover-class="none">
-      <image src='../../images/nav11.png' mode="aspectFill" />
+    <navigator class="orderlist_link" open-type="redirect" url="../memberqishou/memberqishou" hover-class="none">
+      <image src='../../images/nav9.png' mode="aspectFill" />
       <view>司机中心</view>
     </navigator>
   </view>

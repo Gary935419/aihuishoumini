@@ -46,17 +46,28 @@ Page({
      	      }
      	      if (res.data.errcode == '200') {
      	        wx.hideLoading();
-				setTimeout(function() {
-				  wx.navigateTo({
-				    url: '/pages/orderlistqishou/orderlistqishou',
-				  })
-				}, 1000);
+     	        wx.showToast({
+     	        			title: res.data.errmsg,
+     	        			icon: 'none',
+     	        			duration: 3000
+     	        })
+     	        setTimeout(function() {
+     	          wx.redirectTo({
+     	            url: '/pages/orderlistqishou/orderlistqishou',
+     	          })
+     	        }, 500);
      	      } else {
+     	  		  wx.hideLoading();
      	  		  wx.showToast({
-     	  			title: res.data.errmsg,
-     	  			icon: 'none',
-     	  			duration: 3000
+     	  		  			title: res.data.errmsg,
+     	  		  			icon: 'none',
+     	  		  			duration: 3000
      	  		  })
+     	  		  setTimeout(function() {
+     	  		    wx.redirectTo({
+     	  		      url: '/pages/orderlistqishou/orderlistqishou',
+     	  		    })
+     	  		  }, 500);
      	      }
      	    }
      	  })
