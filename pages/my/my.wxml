@@ -151,10 +151,6 @@
           <image src='../../images/my13.png' mode="aspectFill" />
           <view>地址管理</view>
         </navigator>
-        <navigator class="my_member_link" url="../login/login" hover-class="none">
-          <image src='../../images/my14.png' mode="aspectFill" />
-          <view>商家入口</view>
-        </navigator>
 		<navigator class="my_member_link" url="../opinion/opinion" hover-class="none">
 		  <image src='../../images/my12.png' mode="aspectFill" />
 		  <view>意见反馈</view>
@@ -171,6 +167,14 @@
           <image src='../../images/my15.png' mode="aspectFill" />
           <view>平台招募</view>
         </navigator>
+		<navigator class="my_member_link" url="../login/login" hover-class="none">
+		  <image src='../../images/my14.png' mode="aspectFill" />
+		  <view>商家入口</view>
+		</navigator>
+		<navigator class="my_member_link" url="../loginqishou/loginqishou" hover-class="none">
+		  <image src='../../images/my14.png' mode="aspectFill" />
+		  <view>司机入口</view>
+		</navigator>
       </view>
     </view>
   </view>

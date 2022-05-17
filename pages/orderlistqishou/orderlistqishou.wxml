@@ -1,0 +1,67 @@
+<!--pages/orderlist/orderlist.wxml-->
+<view class="orderlist">
+  <view class="addaddress_top"></view>
+  <view class="inner">
+    <view class="orderlist_block">
+		<picker mode="date" value="{{date}}" bindchange="changeDate">
+		  <view class="orderlist_time">
+			<view class="orderlist_time_text">日期</view>
+			  <view class="tui-picker-detail">
+			   {{date}}
+			  </view>
+			  <image src='../../images/jian1.png' mode="aspectFill" />
+		  </view>
+	   </picker>
+      <view class="orderlist_list">
+		  <block wx:for="{{orderlist}}" wx:index="{{index}}" wx:key='key'>
+			<view class="order_link" hover-class="none">
+			  <view class="order_info">
+				<view class="order_title">时间</view>
+				<view class="order_text">{{item.datetime}}</view>
+			  </view>
+			  <view class="order_info">
+				<view class="order_title">商家名称</view>
+				<view class="order_text">{{item.mename}}</view>
+			  </view>
+			  <view class="order_info">
+				<view class="order_title">商家位置</view>
+				<view class="order_text">{{item.meaddress}}</view>
+			  </view>
+			  <view class="order_info">
+				<view class="order_title">订单状态</view>
+				<view class="order_text">{{item.omtype}}</view>
+			  </view>
+			  <view class="order_info">
+			    <view class="order_title">订单价格</view>
+			    <block wx:if="{{item.q_weight != 0}}">
+			       <view class="order_text">{{item.q_weight * item.price}}元</view>
+			    </block>
+			    <block wx:else>
+			       <view class="order_text">目前还没有称重</view>
+			    </block>
+			  </view>
+			  <block wx:if="{{item.q_weight == 0}}">
+				  <!-- <navigator url="../projectmerchants/projectmerchants?oid={{item.oid}}" style="margin-right: 16px;" hover-class="none">
+				      <view class="order_look">去补货</view>
+				  </navigator> -->
+			  		<navigator url="../ordertijiaoqishou/ordertijiaoqishou?omid={{item.omid}}" hover-class="none">
+			            <view class="order_look">填写重量</view>
+			  		</navigator>
+			  </block>
+			</view>
+		   </block>
+      </view>
+    </view>
+  </view>
+  <view class="blank70"></view>
+  <view class="orderlist_bottom">
+    <navigator class="orderlist_link" open-type="redirect" url="../orderlistqishou/orderlistqishou" hover-class="none">
+      <image src='../../images/nav7.png' mode="aspectFill" />
+      <view>订单查看</view>
+    </navigator>
+    <navigator class="orderlist_link orderlist_on" open-type="redirect" url="../memberqishou/memberqishou" hover-class="none">
+      <image src='../../images/nav11.png' mode="aspectFill" />
+      <view>司机中心</view>
+    </navigator>
+  </view>
+</view>

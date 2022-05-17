@@ -19,10 +19,13 @@ App({
 	  ct_ids:'',
 	  userInfo: [],
 	  merchantsInfo:[],
+	  qishouInfo:[],
 	  openid: '',
 	  sessionKey: '',
 	  token: '',
 	  merchants_sessionKey: '',
-	  merchants_token: ''
+	  merchants_token: '',
+	  qishou_sessionKey: '',
+	  qishou_token: ''
   }
 })

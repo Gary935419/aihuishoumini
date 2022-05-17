@@ -8,7 +8,7 @@
   <view class="inner">
     <image src='../../images/header.png' class="login_header" mode="aspectFill" />
     <view class="login_block">
-      <view class="login_title">Hi，商家你好</view>
+      <view class="login_title">Hi，司机你好</view>
       <view class="login_info">
         <image src='../../images/ico12.png' mode="aspectFill" />
         <input bindinput="bindaccountText" type="text" placeholder-style="color:#C9C9C9" placeholder="请输入账号" />

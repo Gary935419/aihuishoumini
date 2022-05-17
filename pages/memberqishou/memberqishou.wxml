@@ -1,0 +1,56 @@
+<!--pages/member/member.wxml-->
+<view class="member">
+  <view class="addaddress_top"></view>
+  <view class="inner">
+    <view class="member_block">
+      <navigator class="member_choose" url="../businessfirm/businessfirm" hover-class="none">
+		  <block wx:if="{{merchantsInfo.qs_avater != ''}}">
+		  	<image src='{{merchantsInfo.qs_avater}}' mode="widthFix" />
+		  </block>
+		  <block wx:else>
+			  <image src='../../images/header.png' mode="widthFix" />
+		  </block>
+		  
+        <view class="member_choose_box">
+          <view class="member_choose_info">
+            <view class="member_choose_name">{{merchantsInfo.qs_nickname}}</view>
+            <!-- <view class="member_choose_tel">{{merchantsInfo.qs_tel}}</view> -->
+          </view>
+          <!-- <image src='../../images/jian1.png' mode="aspectFill" /> -->
+        </view>
+      </navigator>
+	  <view class="my_member">
+	    <view class="my_center_title">司机服务</view>
+	    <view class="my_member_list">
+		<navigator class="my_member_link" bindtap='gomemberinfopage'>
+		<image src='../../images/my13.png' mode="aspectFill" />
+		<view>账号退出</view>
+		</navigator>
+		<navigator class="my_member_link" catchtap='freeTell'>
+		<image src='../../images/my12.png' mode="aspectFill" />
+		<view>联系客服</view>
+		</navigator>
+		<navigator class="my_member_link" url="../infomation/infomation?id=1" hover-class="none">
+		<image src='../../images/my11.png' mode="aspectFill" />
+		<view>关于我们</view>
+		</navigator>
+		<navigator class="my_member_link" url="../infomation/infomation?id=2" hover-class="none">
+		<image src='../../images/my15.png' mode="aspectFill" />
+		<view>平台招募</view>
+		</navigator>
+	    </view>
+	  </view>
+    </view>
+  </view>
+  <view class="blank70"></view>
+  <view class="orderlist_bottom">
+    <navigator class="orderlist_link" open-type="redirect" url="../orderlistqishou/orderlistqishou" hover-class="none">
+      <image src='../../images/nav7.png' mode="aspectFill" />
+      <view>订单查看</view>
+    </navigator>
+    <navigator class="orderlist_link orderlist_on" open-type="redirect" url="../memberqishou/memberqishou" hover-class="none">
+      <image src='../../images/nav11.png' mode="aspectFill" />
+      <view>司机中心</view>
+    </navigator>
+  </view>
+</view>

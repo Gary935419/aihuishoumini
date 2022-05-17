@@ -70,7 +70,7 @@ Page({
   		  wx.showLoading({
   		    title: '正在登录',
   		  })
-  		  config.merchantsInfo = res.userInfo;
+  		  config.qishouInfo = res.userInfo;
   		  this.setData({
   		    merchantsInfo: res.userInfo,
   		  })
@@ -116,12 +116,12 @@ Page({
           method: 'post',
           data: {
             loginCode: loginCode.code,
-            nickname: config.merchantsInfo.nickName,
-            avatarurl: config.merchantsInfo.avatarUrl,
-            gender: config.merchantsInfo.gender,
+            nickname: config.qishouInfo.nickName,
+            avatarurl: config.qishouInfo.avatarUrl,
+            gender: config.qishouInfo.gender,
   			 account: that.data.account,
   			 password: that.data.password,
-			 user_type:0
+			 user_type:1
           },
           success: function(res) {
             if (!res.data) {
@@ -132,9 +132,9 @@ Page({
               })
             }
             if (res.data.errcode == '200') {
-              main.set_storage('merchants_token', res.data.data.token);
+              main.set_storage('qishou_token', res.data.data.qs_token);
   			  if(res.data.data.session_key != ''){
-  			  	   main.set_storage('merchants_sessionKey', res.data.data.session_key);
+  			  	   main.set_storage('qishou_sessionKey', res.data.data.session_key);
   			  }
               //获取个人账户信息
               that.get_member_info();
@@ -163,10 +163,10 @@ Page({
       title: '加载中',
     })
     wx.request({
-      url: app.taskapi + '/Miniapi/merchantsinfo',
+      url: app.taskapi + '/Miniapi/qishouinfo',
       method: 'post',
       data: {
-        token: main.get_storage('merchants_token'),
+        token: main.get_storage('qishou_token'),
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -182,7 +182,7 @@ Page({
 	    if (res.data.errcode == '200') {
 	      wx.hideLoading();
 	      that.setData({
-	        merchantsInfo: res.data.data.merchants,
+	        merchantsInfo: res.data.data.qishou,
 	      })
 	  		   wx.showToast({
 	  		     title: '登陆成功',
@@ -191,7 +191,7 @@ Page({
 	  		   })
 	  		   setTimeout(function() {
 				   wx.navigateTo({
-				     url: '/pages/member/member',
+				     url: '/pages/memberqishou/memberqishou',
 				   })
 	  		   }, 2000)
 	    } else {
@@ -207,9 +207,9 @@ Page({
   
   checklogin:function(){
     	  var that = this;
-		  if(main.get_storage('merchants_token') != ''){
+		  if(main.get_storage('qishou_token') != ''){
 			  wx.navigateTo({
-			    url: '/pages/member/member',
+			    url: '/pages/memberqishou/memberqishou',
 			  })
 		  }
     },
