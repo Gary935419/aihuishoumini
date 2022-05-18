@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-	  oid:'',
+	  omid:'',
 	  orderlist:[],
 	  weight: 0,
 	  ogid: 0
@@ -15,27 +15,23 @@ Page({
   changeInputValue: function(e) {
   	this.setData({
   	  weight: e.detail.value,
-	  ogid: e.currentTarget.dataset.id
+	  omid: e.currentTarget.dataset.id
   	})
-	this.getupdategoodsorder();
+	// this.getupdategoodsorder();
    },
-   gobuhuo:function(){
-     	 var that = this;
-     	 wx.navigateTo({
-     	   url: '/pages/projectmerchants/projectmerchants?oid='+that.data.oid,
-     	 })
-     },
+
    getupdatesumgoodsorder:function(){
      	  var that = this;
      	  wx.showLoading({
      	    title: '加载中',
      	  })
      	  wx.request({
-   			url: app.taskapi + '/Miniapi/sum_orders_goods_update',
+   			url: app.taskapi + '/Miniapi/sum_orders_goods_update_qishou',
      	    method: 'post',
      	    data: {
-     	      token: main.get_storage('merchants_token'),
-   		      oid: that.data.oid,
+     	      token: main.get_storage('qishou_token'),
+   		      weight: that.data.weight,
+			  omid: that.data.omid
      	    },
      	    header: {
      	      'content-type': 'application/x-www-form-urlencoded'
@@ -50,24 +46,28 @@ Page({
      	      }
      	      if (res.data.errcode == '200') {
      	        wx.hideLoading();
-				wx.showToast({
-				    title: res.data.errmsg,
-				    icon: 'none',
-				    duration: 2000,
-				    success: function () {
-				      setTimeout(function() {
-				        wx.navigateTo({
-				          url: '/pages/orderlist/orderlist',
-				        })
-				      }, 2000);
-				    }
-				});
+     	        wx.showToast({
+     	        			title: res.data.errmsg,
+     	        			icon: 'none',
+     	        			duration: 3000
+     	        })
+     	        setTimeout(function() {
+     	          wx.redirectTo({
+     	            url: '/pages/orderlistqishou/orderlistqishou',
+     	          })
+     	        }, 500);
      	      } else {
+     	  		  wx.hideLoading();
      	  		  wx.showToast({
-     	  			title: res.data.errmsg,
-     	  			icon: 'none',
-     	  			duration: 3000
+     	  		  			title: res.data.errmsg,
+     	  		  			icon: 'none',
+     	  		  			duration: 3000
      	  		  })
+     	  		  setTimeout(function() {
+     	  		    wx.redirectTo({
+     	  		      url: '/pages/orderlistqishou/orderlistqishou',
+     	  		    })
+     	  		  }, 500);
      	      }
      	    }
      	  })
@@ -114,7 +114,7 @@ Page({
    */
   onLoad: function (options) {
      this.setData({
-  		 oid: options.oid
+  		 omid: options.omid
      })
   },
   getOrderslist:function(){
@@ -123,12 +123,12 @@ Page({
     	    title: '加载中',
     	  })
     	  wx.request({
-			url: app.taskapi + '/Miniapi/orders_goods_list',
+			url: app.taskapi + '/Miniapi/orders_goods_list_new_one',
     	    method: 'post',
     	    data: {
-    	      token: main.get_storage('merchants_token'),
+    	      token: main.get_storage('qishou_token'),
   		      page: that.data.page,
-  		      oid: that.data.oid,
+  		      omid: that.data.omid,
     	    },
     	    header: {
     	      'content-type': 'application/x-www-form-urlencoded'

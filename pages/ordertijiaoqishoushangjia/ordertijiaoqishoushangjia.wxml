@@ -6,17 +6,18 @@
       <view class="ordertijiao_area">
 		  <view class="ordertijiao_info">
 		    <view class="ordertijiao_text">分类名</view>
-			<view class="ordertijiao_text">商家称重</view>
-			<view class="ordertijiao_text">司机称重</view>
+		  			<view class="ordertijiao_text">商家称重</view>
+		  			<view class="ordertijiao_text">司机称重</view>
 		  </view>
 		  <block wx:for="{{orderlist}}" wx:index="{{index}}" wx:key='key'>
 			  <view class="ordertijiao_info">
 			    <view class="ordertijiao_text">{{item.ct_name}}</view>
 				<view class="ordertijiao_text">{{item.m_weight}}kg</view>
-				<view class="ordertijiao_text">{{item.q_weight}}kg</view>
+			    <input type="text" data-id="{{item.omid}}" placeholder="请填写重量(单位kg)" placeholder-style="color:#999999" bindblur="changeInputValue"/>
 			  </view>
 		  </block>
       </view>
     </view>
   </view>
+  <button class="ordertijiao_btu" bindtap='getupdatesumgoodsorder'>确认提交</button>
 </view>

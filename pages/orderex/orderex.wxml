@@ -20,11 +20,6 @@
 			 </view>
 		   </view>
 		</block>
-		
-		<block wx:if="{{isCancel < 2}}">
-		    <view class="orderex_qu" bindtap="warnModalTrue">取消订单</view>
-		</block>
-        
       </view>
     </view>
   </view>

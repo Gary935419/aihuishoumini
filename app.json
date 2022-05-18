@@ -18,6 +18,8 @@
 	"pages/loginqishou/loginqishou",
     "pages/orderlist/orderlist",
 	"pages/orderlistqishou/orderlistqishou",
+	"pages/orderlistqishoushangjia/orderlistqishoushangjia",
+	"pages/ordertijiaoqishoushangjia/ordertijiaoqishoushangjia",
 	"pages/orderlistheji/orderlistheji",
     "pages/transaction/transaction",
     "pages/withdrawal/withdrawal",

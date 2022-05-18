@@ -11,7 +11,8 @@ Page({
 	shujusum:[],
 	ostate:0,
 	page: 1,
-	orderlist:[]
+	orderlist:[],
+	oid:''
   },
   //选项卡
   changeTabbar(e){
@@ -23,6 +24,73 @@ Page({
 	})
 	that.getOrderslist();
   },
+ 
+  warnModalTrue(e){
+    var self = this;
+	this.setData({ 
+	  oid: e.currentTarget.dataset.id,
+	}),
+    wx.showModal({
+      title: '确认取消订单?',
+      content: '',
+      confirmColor: '#00000',
+      cancelColor: '#00000',
+      confirmText:'是',
+      cancelText: '否',
+      success: function (res) {
+        if (res.confirm) {
+           self.cancelorder();
+        }
+      }
+    })
+  },
+  cancelorder:function(){
+    	  var that = this;
+    	  wx.showLoading({
+    	    title: '加载中',
+    	  })
+    	  wx.request({
+  			url: app.taskapi + '/Miniapi/order_modify_ostate',
+    	    method: 'post',
+    	    data: {
+    	      token: main.get_storage('token'),
+  		      oid: that.data.oid,
+    	    },
+    	    header: {
+    	      'content-type': 'application/x-www-form-urlencoded'
+    	    },
+    	    success: function(res) {
+    	      if (!res.data) {
+    	        wx.showToast({
+    	          title: '加载错误',
+    	          icon: 'loading',
+    	          duration: 10000
+    	        })
+    	      }
+    	      if (res.data.errcode == '200') {
+  			wx.hideLoading();
+  			wx.showToast({
+  			    title: res.data.errmsg,
+  			    icon: 'none',
+  			    duration: 2000,
+  			    success: function () {
+  			      setTimeout(function() {
+  			        wx.navigateTo({
+  			          url: '/pages/order/order',
+  			        })
+  			      }, 2000);
+  			    }
+  			});
+    	      } else {
+    	  		  wx.showToast({
+    	  			title: res.data.errmsg,
+    	  			icon: 'none',
+    	  			duration: 3000
+    	  		  })
+    	      }
+    	    }
+    	  })
+    },
   /**
    * 生命周期函数--监听页面加载
    */

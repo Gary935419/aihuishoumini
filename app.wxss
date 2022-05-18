@@ -534,6 +534,9 @@ page {
   font-size: 28rpx;
   color: #707070;
   max-width: 60%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .order_look {
   border-radius: 50px;
