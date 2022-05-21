@@ -47,15 +47,16 @@ Page({
     	      }
     	      if (res.data.errcode == '200') {
     	        wx.hideLoading();
-  				if(res.data.data.list.length == 0){
-  					wx.showToast({
-  						title: '已经加载全部啦！',
-  						icon: 'none',
-  						duration: 3000
-  					})
+              if(res.data.data.list.length == 0){
+                wx.showToast({
+                  title: '已经加载全部啦！',
+                  icon: 'none',
+                  duration: 3000
+                })
   				}
   				that.setData({
   				  orderlist: that.data.orderlist.concat(res.data.data.list),
+            date: res.data.data.date,
   				})
     	  	  console.log(that.data.orderlist)
     	      } else {

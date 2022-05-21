@@ -39,11 +39,11 @@
 				  <!-- <navigator url="../projectmerchants/projectmerchants?oid={{item.oid}}" style="margin-right: 16px;" hover-class="none">
 				      <view class="order_look">去补货</view>
 				  </navigator> -->
-			  		<navigator url="../ordertijiaoqishoushangjia/ordertijiaoqishoushangjia?meid={{item.meid}}" style="margin-right:15px" hover-class="none">
+			  		<navigator url="../ordertijiaoqishoushangjia/ordertijiaoqishoushangjia?meid={{item.meid}}&&date={{date}}" style="margin-right:15px" hover-class="none">
 			            <view class="order_look">填写重量</view>
 			  		</navigator>
 			  </block>
-			  <navigator url="../ordertijiaoqishou/ordertijiaoqishou?meid={{item.meid}}" hover-class="none">
+			  <navigator url="../orderlistqishou/orderlistqishou?meid={{item.meid}}&&date={{date}}" hover-class="none">
 			      <view class="order_look">查看详情</view>
 			  </navigator>
 			</view>
@@ -53,12 +53,12 @@
   </view>
   <view class="blank70"></view>
   <view class="orderlist_bottom">
-	  <navigator class="orderlist_link orderlist_on" open-type="redirect" url="../orderlistqishoushangjia/orderlistqishoushangjia" hover-class="none">
-	  		<image src='../../images/nav7.png' mode="aspectFill" />
-	  		<view>负责商家</view>
-	  </navigator>
+	<navigator class="orderlist_link orderlist_on" open-type="redirect" url="../orderlistqishoushangjia/orderlistqishoushangjia" hover-class="none">
+		<image src='../../images/nav10.png' mode="aspectFill" />
+		<view>负责商家</view>
+	</navigator>
     <navigator class="orderlist_link" open-type="redirect" url="../orderlistqishou/orderlistqishou" hover-class="none">
-      <image src='../../images/nav10.png' mode="aspectFill" />
+      <image src='../../images/nav7.png' mode="aspectFill" />
       <view>订单查看</view>
     </navigator>
     <navigator class="orderlist_link" open-type="redirect" url="../memberqishou/memberqishou" hover-class="none">

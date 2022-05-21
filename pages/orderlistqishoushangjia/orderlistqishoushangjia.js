@@ -56,6 +56,7 @@ Page({
   				}
   				that.setData({
   				  orderlist: that.data.orderlist.concat(res.data.data.list),
+            date: res.data.data.date,
   				})
     	  	  console.log(that.data.orderlist)
     	      } else {

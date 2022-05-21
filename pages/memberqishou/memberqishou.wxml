@@ -22,10 +22,7 @@
 	  <view class="my_member">
 	    <view class="my_center_title">司机服务</view>
 	    <view class="my_member_list">
-		<navigator class="my_member_link" bindtap='gomemberinfopage'>
-		<image src='../../images/my13.png' mode="aspectFill" />
-		<view>账号退出</view>
-		</navigator>
+		
 		<navigator class="my_member_link" catchtap='freeTell'>
 		<image src='../../images/my12.png' mode="aspectFill" />
 		<view>联系客服</view>
@@ -38,6 +35,11 @@
 		<image src='../../images/my15.png' mode="aspectFill" />
 		<view>平台招募</view>
 		</navigator>
+		<navigator class="my_member_link" bindtap='gomemberinfopage'>
+		<image src='../../images/my13.png' mode="aspectFill" />
+		<view>账号退出</view>
+		</navigator>
+		
 	    </view>
 	  </view>
     </view>

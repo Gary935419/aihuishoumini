@@ -135,10 +135,10 @@
     <view class="my_member">
       <view class="my_center_title">会员服务</view>
       <view class="my_member_list">
-        <navigator class="my_member_link" url="../withdrawaluser/withdrawaluser" hover-class="none">
+        <!-- <navigator class="my_member_link" url="../withdrawaluser/withdrawaluser" hover-class="none">
           <image src='../../images/my8.png' mode="aspectFill" />
           <view>我的钱包</view>
-        </navigator>
+        </navigator> -->
 		<navigator class="my_member_link" url="../wywithdrawaluser/wywithdrawaluser" hover-class="none">
 		  <image src='../../images/my13.png' mode="aspectFill" />
 		  <view>我的收款</view>
@@ -155,10 +155,10 @@
 		  <image src='../../images/my12.png' mode="aspectFill" />
 		  <view>意见反馈</view>
 		</navigator>
-		<navigator class="my_member_link" catchtap='freeTell'>
+		<!-- <navigator class="my_member_link" catchtap='freeTell'>
 		  <image src='../../images/my12.png' mode="aspectFill" />
 		  <view>联系客服</view>
-		</navigator>
+		</navigator> -->
 		<navigator class="my_member_link" url="../infomation/infomation?id=1" hover-class="none">
 		  <image src='../../images/my11.png' mode="aspectFill" />
 		  <view>关于我们</view>

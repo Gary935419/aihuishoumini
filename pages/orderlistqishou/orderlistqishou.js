@@ -9,12 +9,13 @@ Page({
    */
   data: {
     date: '',
-	orderlist:[],
-	page:1
+	  orderlist:[],
+	  page:1,
+    meid:''
   },
   changeDate(e){
 	  var that = this;
-	console.log(e.detail.value)
+	  console.log(e.detail.value)
     this.setData({ 
 		date:e.detail.value,
 		orderlist:[],
@@ -33,6 +34,7 @@ Page({
     	      token: main.get_storage('qishou_token'),
   		      page: that.data.page,
   		      date: that.data.date,
+            meid: that.data.meid,
     	    },
     	    header: {
     	      'content-type': 'application/x-www-form-urlencoded'
@@ -56,6 +58,7 @@ Page({
   				}
   				that.setData({
   				  orderlist: that.data.orderlist.concat(res.data.data.list),
+            date: res.data.data.date,
   				})
     	  	  console.log(that.data.orderlist)
     	      } else {
@@ -68,12 +71,14 @@ Page({
     	    }
     	  })
     },
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
-  },
+      console.log(options.meid)
+      console.log(options.date)
+      this.setData({
+        meid: options.meid,
+        date: options.date,
+      })
+   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -40,18 +40,15 @@
 	  <view class="my_member">
 	    <view class="my_center_title">会员服务</view>
 	    <view class="my_member_list">
-		<navigator class="my_member_link" bindtap='gomemberinfopage'>
-		<image src='../../images/my13.png' mode="aspectFill" />
-		<view>账号退出</view>
-		</navigator>
+		
 		<navigator class="my_member_link" url="../list/list" hover-class="none">
 		<image src='../../images/my8.png' mode="aspectFill" />
 		<view>提现记录</view>
 		</navigator>
-		<navigator class="my_member_link" catchtap='freeTell'>
+		<!-- <navigator class="my_member_link" catchtap='freeTell'>
 		<image src='../../images/my12.png' mode="aspectFill" />
 		<view>联系客服</view>
-		</navigator>
+		</navigator> -->
 		<navigator class="my_member_link" url="../infomation/infomation?id=1" hover-class="none">
 		<image src='../../images/my11.png' mode="aspectFill" />
 		<view>关于我们</view>
@@ -60,9 +57,13 @@
 		<image src='../../images/my15.png' mode="aspectFill" />
 		<view>平台招募</view>
 		</navigator>
-		<navigator class="my_member_link" url="../orderlistheji/orderlistheji" hover-class="none">
+		<!-- <navigator class="my_member_link" url="../orderlistheji/orderlistheji" hover-class="none">
 		<image src='../../images/my8.png' mode="aspectFill" />
 		<view>订单合计</view>
+		</navigator> -->
+    <navigator class="my_member_link" bindtap='gomemberinfopage'>
+		<image src='../../images/my13.png' mode="aspectFill" />
+		<view>账号退出</view>
 		</navigator>
 		<navigator class="my_member_link" bindtap='gofullmsg'>
 		<image src='../../images/my11.png' mode="aspectFill" />
@@ -74,6 +75,10 @@
   </view>
   <view class="blank70"></view>
   <view class="orderlist_bottom">
+    <navigator class="orderlist_link" open-type="redirect" url="../orderlistheji/orderlistheji" hover-class="none">
+      <image src='../../images/nav7.png' mode="aspectFill" />
+      <view>订单合计</view>
+    </navigator>
     <navigator class="orderlist_link" open-type="redirect" url="../orderlist/orderlist" hover-class="none">
       <image src='../../images/nav7.png' mode="aspectFill" />
       <view>订单查看</view>

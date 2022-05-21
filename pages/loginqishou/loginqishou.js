@@ -205,6 +205,45 @@ Page({
     })
   },
   
+  get_member_infonew: function() {
+    var that = this;
+    wx.request({
+      url: app.taskapi + '/Miniapi/qishouinfo',
+      method: 'post',
+      data: {
+        token: main.get_storage('qishou_token'),
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+	  success: function(res) {
+	    if (!res.data) {
+	      wx.showToast({
+	        title: '加载错误',
+	        icon: 'loading',
+	        duration: 10000
+	      })
+	    }
+	    if (res.data.errcode == '200') {
+	      wx.hideLoading();
+	      that.setData({
+	        merchantsInfo: res.data.data.qishou,
+	      })
+	  		   wx.showToast({
+	  		     title: '登陆成功',
+	  		     icon: 'success',
+	  		     duration: 10000
+	  		   })
+	  		   setTimeout(function() {
+				   wx.navigateTo({
+				     url: '/pages/memberqishou/memberqishou',
+				   })
+	  		   }, 2000)
+	    }
+	  }
+    })
+  },
+
   checklogin:function(){
     	  var that = this;
 		  if(main.get_storage('qishou_token') != ''){
@@ -225,7 +264,7 @@ Page({
    */
   onShow: function () {
 	  var that = this;
-     that.get_member_info();
+     that.get_member_infonew();
   },
 
   /**

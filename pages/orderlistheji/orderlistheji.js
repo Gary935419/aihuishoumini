@@ -57,7 +57,8 @@ Page({
   				}
   				that.setData({
   				  orderlist: that.data.orderlist.concat(res.data.data.list),
-				  price: res.data.data.price,
+				    price: res.data.data.price,
+            date: res.data.data.date,
   				})
     	      } else {
     	  		  wx.showToast({

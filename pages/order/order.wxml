@@ -85,7 +85,7 @@
 				 <navigator url="../orderex/orderex?oid={{item.oid}}&isCancel={{item.ostate}}" style="margin-right: 10px;" hover-class="none">
 				    <view class="order_look">查看详情</view>
 				 </navigator>
-				 <block wx:if="{{item.ostate != 3}}">
+				 <block wx:if="{{item.ostate < 2}}">
 					<view>
 			           <view class="order_look" data-id="{{item.oid}}" bindtap="warnModalTrue">取消订单</view>
 					</view>
