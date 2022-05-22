@@ -103,7 +103,7 @@
     </view>
 
     <view class="index_huishou">
-      <image src='../../images/index1.png' mode="widthFix" style='width:100%;' />
+      <image src='../../images/index2.png' mode="widthFix" style='width:100%;' />
       <navigator class="index_huishou_link" bindtap="gosendorder" hover-class="none">
         <image src='../../images/btu1.png' mode="aspectFill" style='width:100%;' />
       </navigator>
@@ -113,10 +113,67 @@
     <view class="index_require">
       <view class="index_require_title">回收要求</view>
       <view class="index_require_box">
+       <view class="index_require_area">
+        <view class="index_require_info">
+          <view class="index_require_name">1公斤起收</view>
+          <view class="index_require_text">少于一公斤无法结算</view>
+        </view>
         <image src='../../images/ico2.png' mode="aspectFill" />
+       </view>
+       <view class="index_require_area">
+        <view class="index_require_info">
+          <view class="index_require_name">分类回收</view>
+          <view class="index_require_text">回收多个品类商品</view>
+        </view>
+        <image src='../../images/ico14.png' mode="aspectFill" />
+       </view>
+       <view class="index_require_area">
+        <view class="index_require_info">
+          <view class="index_require_name">请不要掺水</view>
+          <view class="index_require_text">不回收含水分的货物</view>
+        </view>
         <image src='../../images/ico3.png' mode="aspectFill" />
+       </view>
+       <view class="index_require_area">
+        <view class="index_require_info">
+          <view class="index_require_name">旧物不掺杂</view>
+          <view class="index_require_text">不要掺杂不回收物品</view>
+        </view>
         <image src='../../images/ico4.png' mode="aspectFill" />
+       </view>
       </view>
     </view>
+
+    <view class="index_recommend">
+      <view class="index_recommend_top">
+        <view class="index_recommend_top_title">推荐商家</view>
+        <!-- <navigator class="index_recommend_top_more" url="../projectclass/projectclass" hover-class="none">
+          <view>查看更多</view>
+          <image src='../../images/jian1.png' mode="aspectFill" />
+        </navigator> -->
+      </view>
+      <view class="index_recommend_list">
+		  <block wx:for="{{merchants_list}}" wx:index="{{index}}" wx:key='key'>
+			   <navigator class="index_recommend_item" hover-class="none">
+				 <image src='{{item.meimg}}' mode="widthFix" />
+				 <view>{{item.mename}}</view>
+			   </navigator>
+		  </block>
+      </view>
+    </view>
+
+    <view class="index_friends">
+      <view class="index_require_title">合作伙伴</view>
+      <view class="index_friends_area">
+		  <block wx:for="{{cooperation_list}}" wx:index="{{index}}" wx:key='key'>
+			 <view class="index_friends_box">
+			   <image src='{{item.bannerimg}}' mode="aspectFill" />
+			 </view>
+		  </block>
+      </view>
+    </view>
+    <!-- <button class="fenxiang">
+      <image src='../../images/ico14.png' mode="aspectFill" style='width:100%;' />
+    </button> -->
   </view>
 </view>

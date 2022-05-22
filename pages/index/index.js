@@ -10,6 +10,7 @@ Page({
     top:'',
     height:'',
     bannerlist:[],
+	cooperation_list:[],
     classonelist:[],
     width1: wx.getSystemInfoSync().windowWidth-22,//图片宽度  
     height1: wx.getSystemInfoSync().windowWidth * 8 / 25,//图片高度
@@ -19,6 +20,7 @@ Page({
     marquee_margin: 0,
     size:14,
 	setarr:[],
+	merchants_list:[],
     interval: 20 // 时间间隔
   },
   // 事件处理函数
@@ -85,6 +87,7 @@ Page({
    	            wx.hideLoading();
  				that.setData({
  				  bannerlist: res.data.data.list,
+				  cooperation_list: res.data.data.list1,
 				  text: res.data.data.noticemsg,
  				})
    	  	  console.log(res.data.data.list)
@@ -98,7 +101,48 @@ Page({
    	    }
    	  })
    },
-   
+   getMerchantslist:function(){
+     	  var that = this;
+     	  wx.showLoading({
+     	    title: '加载中',
+     	  })
+     	  wx.request({
+   			url: app.taskapi + '/Miniapi/merchants_list_index',
+     	    method: 'post',
+     	    data: {},
+     	    header: {
+     	      'content-type': 'application/x-www-form-urlencoded'
+     	    },
+     	    success: function(res) {
+     	      if (!res.data) {
+     	        wx.showToast({
+     	          title: '加载错误',
+     	          icon: 'loading',
+     	          duration: 10000
+     	        })
+     	      }
+     	      if (res.data.errcode == '200') {
+     	        wx.hideLoading();
+   				if(res.data.data.list.length == 0){
+   					wx.showToast({
+   						title: '已经加载全部啦！',
+   						icon: 'none',
+   						duration: 3000
+   					})
+   				}
+   				that.setData({
+   				  merchants_list: res.data.data.list,
+   				})
+     	      } else {
+     	  		  wx.showToast({
+     	  			title: res.data.errmsg,
+     	  			icon: 'none',
+     	  			duration: 3000
+     	  		  })
+     	      }
+     	    }
+     	  })
+     },
    getClassonelist:function(){
      	  var that = this;
      	  wx.showLoading({
@@ -149,6 +193,7 @@ Page({
   that.getBannerlist();
   that.getClassonelist();
   that.get_set_info();
+  that.getMerchantslist();
   main.remove_storage('ct_ids');
   },
    

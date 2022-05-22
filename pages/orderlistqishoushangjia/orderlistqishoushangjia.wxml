@@ -23,10 +23,10 @@
 				<view class="order_title">商家位置</view>
 				<view class="order_text">{{item.meaddress}}</view>
 			  </view>
-			  <view class="order_info">
+			  <!-- <view class="order_info">
 				<view class="order_title">订单状态</view>
 				<view class="order_text">{{item.omtype}}</view>
-			  </view>
+			  </view> -->
 			  <view class="order_info">
 				<view class="order_title">是否满仓</view>
 				<view class="order_text">{{item.manchang}}</view>
@@ -35,7 +35,7 @@
 				<view class="order_title">当日订单量</view>
 				<view class="order_text">{{item.dingdanliang}}个</view>
 			  </view>
-			  <block wx:if="{{item.q_weight == 0 || item.q_weight == '' || item.q_weight == null}}">
+			  <block wx:if="{{item.dingdanliang > 0 && (item.q_weight == 0 || item.q_weight == '' || item.q_weight == null)}}">
 				  <!-- <navigator url="../projectmerchants/projectmerchants?oid={{item.oid}}" style="margin-right: 16px;" hover-class="none">
 				      <view class="order_look">去补货</view>
 				  </navigator> -->
@@ -43,9 +43,13 @@
 			            <view class="order_look">填写重量</view>
 			  		</navigator>
 			  </block>
-			  <navigator url="../orderlistqishou/orderlistqishou?meid={{item.meid}}&&date={{date}}" hover-class="none">
-			      <view class="order_look">查看详情</view>
-			  </navigator>
+			  <block wx:else>
+				  <block  wx:if="{{item.dingdanliang > 0}}">
+					  <navigator url="../orderlistqishou/orderlistqishou?meid={{item.meid}}&&date={{date}}" hover-class="none">
+					      <view class="order_look">查看详情</view>
+					  </navigator>
+				  </block>
+			  </block>
 			</view>
 		   </block>
       </view>

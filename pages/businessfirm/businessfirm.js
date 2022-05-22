@@ -8,7 +8,7 @@ Page({
    */
   data: {
      region: ["四川省", "广元市", "苍溪县"],
-     countryList1: ['是','否'],
+     countryList1: ['否','是'],
      countryIndex1: 0,
      previewImageArr: [],
 	 address:'',

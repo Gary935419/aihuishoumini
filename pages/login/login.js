@@ -191,7 +191,7 @@ Page({
 	  		   })
 	  		   setTimeout(function() {
 				   wx.navigateTo({
-				     url: '/pages/member/member',
+				     url: '/pages/orderlist/orderlist',
 				   })
 	  		   }, 2000)
 	    } else {
@@ -235,7 +235,7 @@ Page({
 	  		   })
 	  		   setTimeout(function() {
 				   wx.navigateTo({
-				     url: '/pages/member/member',
+				     url: '/pages/orderlist/orderlist',
 				   })
 	  		   }, 2000)
 	    }
@@ -246,7 +246,7 @@ Page({
     	  var that = this;
 		  if(main.get_storage('merchants_token') != ''){
 			  wx.navigateTo({
-			    url: '/pages/member/member',
+			    url: '/pages/orderlist/orderlist',
 			  })
 		  }
     },

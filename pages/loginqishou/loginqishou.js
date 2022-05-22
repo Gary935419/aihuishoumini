@@ -191,7 +191,7 @@ Page({
 	  		   })
 	  		   setTimeout(function() {
 				   wx.navigateTo({
-				     url: '/pages/memberqishou/memberqishou',
+				     url: '/pages/orderlistqishoushangjia/orderlistqishoushangjia',
 				   })
 	  		   }, 2000)
 	    } else {
@@ -236,7 +236,7 @@ Page({
 	  		   })
 	  		   setTimeout(function() {
 				   wx.navigateTo({
-				     url: '/pages/memberqishou/memberqishou',
+				     url: '/pages/orderlistqishoushangjia/orderlistqishoushangjia',
 				   })
 	  		   }, 2000)
 	    }
@@ -248,7 +248,7 @@ Page({
     	  var that = this;
 		  if(main.get_storage('qishou_token') != ''){
 			  wx.navigateTo({
-			    url: '/pages/memberqishou/memberqishou',
+			    url: '/pages/orderlistqishoushangjia/orderlistqishoushangjia',
 			  })
 		  }
     },

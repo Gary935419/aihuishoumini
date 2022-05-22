@@ -14,6 +14,7 @@
         <view class="member_choose_box">
           <view class="member_choose_info">
             <view class="member_choose_name">{{merchantsInfo.mename}}</view>
+			<view class="member_choose_name" style="font-size: 30rpx;color: #9e9e9e;">{{merchantsInfo.level_name}}</view>
             <view class="member_choose_tel">{{merchantsInfo.metel}}</view>
           </view>
           <image src='../../images/jian1.png' mode="aspectFill" />
@@ -29,7 +30,7 @@
           <view class="member_area_text">回收金额</view>
         </view>
         <view class="member_area_box">
-          <view class="member_area_num">{{merchantsInfo.me_wallet}}</view>
+          <view class="member_area_num">{{shujusum.sum3}}</view>
           <view class="member_area_text">赚取金额</view>
         </view>
         <view class="member_area_box">
@@ -53,22 +54,31 @@
 		<image src='../../images/my11.png' mode="aspectFill" />
 		<view>关于我们</view>
 		</navigator>
-		<navigator class="my_member_link" url="../infomation/infomation?id=2" hover-class="none">
+		<!-- <navigator class="my_member_link" url="../infomation/infomation?id=2" hover-class="none">
 		<image src='../../images/my15.png' mode="aspectFill" />
 		<view>平台招募</view>
-		</navigator>
+		</navigator> -->
 		<!-- <navigator class="my_member_link" url="../orderlistheji/orderlistheji" hover-class="none">
 		<image src='../../images/my8.png' mode="aspectFill" />
 		<view>订单合计</view>
 		</navigator> -->
-    <navigator class="my_member_link" bindtap='gomemberinfopage'>
+        <navigator class="my_member_link" bindtap='gomemberinfopage'>
 		<image src='../../images/my13.png' mode="aspectFill" />
 		<view>账号退出</view>
 		</navigator>
-		<navigator class="my_member_link" bindtap='gofullmsg'>
-		<image src='../../images/my11.png' mode="aspectFill" />
-		<view>满仓提醒</view>
-		</navigator>
+		
+		<block wx:if="{{merchantsInfo.full_flg == 1}}">
+			<navigator class="my_member_link">
+			<image src='../../images/nav9.png' mode="aspectFill" />
+			<view>已提醒</view>
+			</navigator>
+		</block>
+		<block wx:else>
+			<navigator class="my_member_link" bindtap='gofullmsg'>
+			<image src='../../images/my11.png' mode="aspectFill" />
+			<view>满仓提醒</view>
+			</navigator>
+		</block>
 	    </view>
 	  </view>
     </view>

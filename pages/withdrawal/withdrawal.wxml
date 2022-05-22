@@ -4,10 +4,10 @@
   <view class="inner">
     <view class="withdrawal_block">
       <view class="ordertijiao_area">
-        <view class="ordertijiao_info">
+        <!-- <view class="ordertijiao_info">
           <view class="ordertijiao_text">钱包金额</view>
           <view class="tui-picker-detail">{{userinfo.me_wallet}}元</view>
-        </view>
+        </view> -->
         <!-- <view class="ordertijiao_info">
           <view class="ordertijiao_text">提现金额</view>
           <input type="text" placeholder="请录入提现金额" bindinput="bindmoneyText" placeholder-style="color:#999999" />
