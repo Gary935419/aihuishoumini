@@ -71,7 +71,7 @@ getUserProfile(e) {
     },
 	gonews:function(){
 	  	  var that = this;
-	  	 wx.navigateTo({
+	  	 wx.reLaunch({
 	  	   url: '/pages/news/news',
 	  	 })
 	  },

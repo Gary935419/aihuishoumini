@@ -125,7 +125,7 @@ get_address_info: function() {
 		console.log(e.currentTarget.dataset.id)
 	    main.set_storage('meid', e.currentTarget.dataset.id);
 		setTimeout(function() {
-		  wx.navigateTo({
+		  wx.reLaunch({
 		    url: '/pages/orderque/orderque',
 		  })
 		}, 500);

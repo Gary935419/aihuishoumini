@@ -24,7 +24,7 @@ Page({
 	 isDe22:'none'
   },
   merchants_modify() {
-    wx.navigateTo({
+    wx.reLaunch({
       url: '../businessfirmup/businessfirm'
     })
   },

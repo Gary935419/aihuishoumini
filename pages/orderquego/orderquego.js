@@ -254,7 +254,7 @@ console.log(dateArr)
   			    success: function () {
   			      setTimeout(function() {
 					main.remove_storage('ct_ids');
-  			        wx.redirectTo({
+  			        wx.reLaunch({
   			          url: '/pages/order/order',
   			        })
   			      }, 2000);

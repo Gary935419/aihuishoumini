@@ -172,7 +172,7 @@ getclassonelist:function(){
 					    success: function () {
 					      setTimeout(function() {
 							main.remove_storage('ct_ids');
-					        wx.navigateTo({
+					        wx.reLaunch({
 					          url: '/pages/ordertijiao/ordertijiao?oid='+that.data.oid,
 					        })
 					      }, 2000);

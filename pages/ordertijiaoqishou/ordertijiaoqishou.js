@@ -52,7 +52,7 @@ Page({
      	        			duration: 3000
      	        })
      	        setTimeout(function() {
-     	          wx.redirectTo({
+     	          wx.reLaunch({
      	            url: '/pages/orderlistqishou/orderlistqishou',
      	          })
      	        }, 500);
@@ -64,7 +64,7 @@ Page({
      	  		  			duration: 3000
      	  		  })
      	  		  setTimeout(function() {
-     	  		    wx.redirectTo({
+     	  		    wx.reLaunch({
      	  		      url: '/pages/orderlistqishou/orderlistqishou',
      	  		    })
      	  		  }, 500);

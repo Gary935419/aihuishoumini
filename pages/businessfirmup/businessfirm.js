@@ -255,7 +255,7 @@ Page({
 				    duration: 2000,
 				    success: function () {
 				      setTimeout(function() {
-				        wx.navigateTo({
+				        wx.reLaunch({
 				          url: '/pages/member/member',
 				        })
 				      }, 2000);

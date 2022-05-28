@@ -54,7 +54,7 @@ Page({
      	        			duration: 3000
      	        })
      	        setTimeout(function() {
-     	          wx.redirectTo({
+     	          wx.reLaunch({
      	            url: '/pages/memberqishou/memberqishou',
      	          })
      	        }, 500);
@@ -66,7 +66,7 @@ Page({
      	  		  			duration: 3000
      	  		  })
      	  		  setTimeout(function() {
-     	  		    wx.redirectTo({
+     	  		    wx.reLaunch({
 						url: '/pages/memberqishou/memberqishou',
      	  		    })
      	  		  }, 500);

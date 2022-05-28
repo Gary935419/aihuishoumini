@@ -190,7 +190,7 @@ Page({
 	  		     duration: 10000
 	  		   })
 	  		   setTimeout(function() {
-				   wx.navigateTo({
+				   wx.reLaunch({
 				     url: '/pages/orderlistqishoushangjia/orderlistqishoushangjia',
 				   })
 	  		   }, 2000)
@@ -235,7 +235,7 @@ Page({
 	  		     duration: 10000
 	  		   })
 	  		   setTimeout(function() {
-				   wx.navigateTo({
+				   wx.reLaunch({
 				     url: '/pages/orderlistqishoushangjia/orderlistqishoushangjia',
 				   })
 	  		   }, 2000)
@@ -247,7 +247,7 @@ Page({
   checklogin:function(){
     	  var that = this;
 		  if(main.get_storage('qishou_token') != ''){
-			  wx.navigateTo({
+			  wx.reLaunch({
 			    url: '/pages/orderlistqishoushangjia/orderlistqishoushangjia',
 			  })
 		  }

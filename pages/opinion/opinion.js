@@ -55,7 +55,7 @@ Page({
   			    duration: 2000,
   			    success: function () {
   			      setTimeout(function() {
-  			        wx.redirectTo({
+  			        wx.reLaunch({
   			          url: '/pages/opinion/opinion',
   			        })
   			      }, 2000);

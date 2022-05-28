@@ -121,7 +121,7 @@ navigator {
 
 .inner {
   width: 94%;
-  margin: 0 3%;
+  margin: -10px 3%;
 }
 .addaddress_top {
   background: -webkit-linear-gradient(#FF1010 , #FF9696);
@@ -1668,8 +1668,8 @@ view.orderque_top_area:last-of-type {
   background: -o-linear-gradient(#21D95D, #0CB700);
   background: -moz-linear-gradient(#21D95D, #0CB700);
   background: linear-gradient(#21D95D , #0CB700);
-  margin-bottom: 50rpx;
-  margin-top: 50rpx;
+  /* margin-bottom: 50rpx;
+  margin-top: 50rpx; */
 }
 .placeorder .addaddress_top  {
   height: 200rpx;

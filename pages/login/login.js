@@ -190,7 +190,7 @@ Page({
 	  		     duration: 10000
 	  		   })
 	  		   setTimeout(function() {
-				   wx.navigateTo({
+				   wx.reLaunch({
 				     url: '/pages/orderlist/orderlist',
 				   })
 	  		   }, 2000)
@@ -234,7 +234,7 @@ Page({
 			 duration: 10000
 		   })
 		   setTimeout(function() {
-			   wx.navigateTo({
+			   wx.reLaunch({
 				 url: '/pages/orderlist/orderlist',
 			   })
 		   }, 2000)
@@ -245,7 +245,7 @@ Page({
   checklogin:function(){
     	  var that = this;
 		  if(main.get_storage('merchants_token') != ''){
-			  wx.navigateTo({
+			  wx.reLaunch({
 			    url: '/pages/orderlist/orderlist',
 			  })
 		  }

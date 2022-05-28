@@ -21,7 +21,7 @@ Page({
    },
    gobuhuo:function(){
      	 var that = this;
-     	 wx.navigateTo({
+     	 wx.reLaunch({
      	   url: '/pages/projectmerchants/projectmerchants?oid='+that.data.oid,
      	 })
      },
@@ -56,7 +56,7 @@ Page({
 				    duration: 2000,
 				    success: function () {
 				      setTimeout(function() {
-				        wx.navigateTo({
+				        wx.reLaunch({
 				          url: '/pages/orderlist/orderlist',
 				        })
 				      }, 2000);

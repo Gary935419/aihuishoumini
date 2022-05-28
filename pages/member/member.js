@@ -162,7 +162,7 @@ get_member_info: function() {
     	            duration: 2000,
     	            success: function () {
     	              setTimeout(function() {
-    	                wx.redirectTo({
+    	                wx.reLaunch({
     	                  url: '/pages/member/member',
     	                })
     	              }, 2000);

@@ -70,7 +70,7 @@ warnModalTrue(e){
   			    duration: 2000,
   			    success: function () {
   			      setTimeout(function() {
-  			        wx.navigateTo({
+  			        wx.reLaunch({
   			          url: '/pages/address/address',
   			        })
   			      }, 2000);
@@ -120,7 +120,7 @@ warnModalTrue(e){
 	            success: function (res) {
 					console.log(res)
 					if(res.errMsg == 'chooseLocation:ok'){
-						wx.navigateTo({
+						wx.reLaunch({
 						  url: '/pages/addaddress/addaddress?address='+res.address+res.name+'&latitude='+res.latitude+'&longitude='+res.longitude,
 						})
 					}else{

@@ -119,7 +119,7 @@ Page({
 			duration: 3000
           })
 		  setTimeout(function() {
-		    wx.navigateTo({
+		    wx.reLaunch({
 		      url: '/pages/list/list',
 		    })
 		  }, 500);

@@ -25,12 +25,12 @@ Page({
   },
   // 事件处理函数
   bindViewTap() {
-    wx.navigateTo({
+    wx.reLaunch({
       url: '../logs/logs'
     })
   },
   gosendorder() {
-    wx.navigateTo({
+    wx.reLaunch({
       url: '../project/project'
     })
   },
