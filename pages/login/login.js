@@ -228,16 +228,16 @@ Page({
 	      that.setData({
 	        merchantsInfo: res.data.data.merchants,
 	      })
-	  		   wx.showToast({
-	  		     title: '登陆成功',
-	  		     icon: 'success',
-	  		     duration: 10000
-	  		   })
-	  		   setTimeout(function() {
-				   wx.navigateTo({
-				     url: '/pages/orderlist/orderlist',
-				   })
-	  		   }, 2000)
+		   wx.showToast({
+			 title: '登陆成功',
+			 icon: 'success',
+			 duration: 10000
+		   })
+		   setTimeout(function() {
+			   wx.navigateTo({
+				 url: '/pages/orderlist/orderlist',
+			   })
+		   }, 2000)
 	    }
 	  }
     })
