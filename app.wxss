@@ -948,7 +948,7 @@ page {
 }
 .member_choose_box image {
   width: 20rpx;
-  height: 31rpx !important;
+  height: 40rpx !important;
 }
 .member_choose_info {
   width: 90%;
@@ -1420,7 +1420,7 @@ page {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30rpx 15rpx;
+  padding: 30rpx 30rpx;
 }
 .project_item image {
   width: 30%;
@@ -1678,7 +1678,7 @@ view.orderque_top_area:last-of-type {
   color: #707070;
 }
 .ordertijiao_info input {
-  width: 65%;
+  width: 50%;
   font-size: 28rpx;
   color: #707070;
   text-align: right;
@@ -2079,6 +2079,7 @@ view.orderque_top_area:last-of-type {
 .index_recommend_item image {
   width: 100%;
   border-radius: 20rpx;
+  height: 181rpx !important;
 }
 .index_recommend_item view {
   background: rgba(0,0,0,0.5);

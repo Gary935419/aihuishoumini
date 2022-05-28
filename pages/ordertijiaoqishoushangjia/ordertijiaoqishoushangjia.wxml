@@ -12,7 +12,7 @@
 		  <block wx:for="{{orderlist}}" wx:index="{{index}}" wx:key='key'>
 			  <view class="ordertijiao_info">
 			    <view class="ordertijiao_text">{{item.ct_name}}</view>
-				<view class="ordertijiao_text">{{item.m_weight}}kg</view>
+				<view class="ordertijiao_text">{{item.m_weight}}{{item.ct_danwei}}</view>
 			    <input style="width: 20%;" type="text" data-id="{{item.omid}}" placeholder="请填写" placeholder-style="color:#999999" bindblur="changeInputValue"/>
 			  </view>
 		  </block>

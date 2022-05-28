@@ -15,7 +15,7 @@
       <view class="orderlist_list">
 		  <block wx:for="{{orderlist}}" wx:index="{{index}}" wx:key='key'>
 			<view class="order_link" hover-class="none">
-			  <view class="order_info">
+			  <!-- <view class="order_info">
 				<view class="order_title">时间</view>
 				<view class="order_text">{{item.datetime}}</view>
 			  </view>
@@ -30,6 +30,18 @@
 			  <view class="order_info">
 				<view class="order_title">订单状态</view>
 				<view class="order_text">{{item.omtype}}</view>
+			  </view> -->
+			  <view class="order_info">
+				<view class="order_title">商品名称</view>
+				<view class="order_text">{{item.ct_name}}</view>
+			  </view>
+			  <view class="order_info">
+				<view class="order_title">回收重量</view>
+				<view class="order_text">{{item.m_weight}}{{item.ct_danwei}}</view>
+			  </view>
+			  <view class="order_info">
+				<view class="order_title">实际重量</view>
+				<view class="order_text">{{item.q_weight}}{{item.ct_danwei}}</view>
 			  </view>
 			  <view class="order_info">
 			    <view class="order_title">订单价格</view>
@@ -40,9 +52,13 @@
 			       <view class="order_text">目前还没有称重</view>
 			    </block>
 			  </view>
-			  <navigator url="../ordertijiaoqishou/ordertijiaoqishou?omid={{item.omid}}" hover-class="none">
+			  <view class="order_info">
+				<view class="order_title">回收时间</view>
+				<view class="order_text">{{item.datetime}}</view>
+			  </view>
+			  <!-- <navigator url="../ordertijiaoqishou/ordertijiaoqishou?omid={{item.omid}}" hover-class="none">
 			      <view class="order_look">查看详情</view>
-			  </navigator>
+			  </navigator> -->
 			</view>
 		   </block>
       </view>

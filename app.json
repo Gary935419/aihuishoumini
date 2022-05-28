@@ -4,6 +4,7 @@
     "pages/personal/personal",
     "pages/list/list",
     "pages/businessfirm/businessfirm",
+	"pages/businessfirmup/businessfirm",
     "pages/member/member",
 	"pages/memberqishou/memberqishou",
     "pages/my/my",

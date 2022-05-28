@@ -62,7 +62,7 @@
   </view>
   <view class="blank70"></view>
   <view class="orderlist_bottom">
-	  <navigator class="orderlist_link" open-type="redirect" url="../orderlistheji/orderlistheji" hover-class="none">
+	<navigator class="orderlist_link" open-type="redirect" url="../orderlistheji/orderlistheji" hover-class="none">
       <image src='../../images/nav7.png' mode="aspectFill" />
       <view>订单合计</view>
     </navigator>

@@ -28,27 +28,33 @@
     </navigator>
     <view class="collecte_title">附近代收点</view>
     <view class="collecte_list">
-		
-		<block wx:for="{{orderlist}}" wx:index="{{index}}" wx:key='key'>
-			   <view class="collecte_item">
-				 <view class="collecte_area">
-				   <image src='{{item.meimg}}' mode="aspectFill" />
-				   <view class="collecte_box">
-					 <view class="collecte_info">
-					   <view class="collecte_name">{{item.mename}}</view>
-					   <view class="collecte_choose" data-id="{{item.meid}}" bindtap="getsendone">选这个</view>
-					 </view>
-					 <!-- <view class="collecte_num"><view>距离最近</view>据您步行距离：67米</view> -->
-					 <view class="collecte_num">据您步行距离：{{item.distance}}</view>
-					 <view class="collecte_add">{{item.meaddress}}</view>
-				   </view>
-				 </view>
-				 <view class="collecte_caption">
-					 <block wx:for="{{item.lablearr}}" wx:for-item="lablearritem" wx:key="{{lablearritem}}">
-								  <view>{{lablearritem.ltitle}}</view>
-					 </block>
-				 </view>
-			   </view>
+		<block wx:if='{{openstatus==1}}'>
+			<block wx:for="{{orderlist}}" wx:index="{{index}}" wx:key='key'>
+				<block wx:if='{{item.isshow==1}}'>
+					<view class="collecte_item" data-id="{{item.meid}}" bindtap="getsendone">
+						 <view class="collecte_area">
+						   <image src='{{item.meimg}}' mode="aspectFill" />
+						   <view class="collecte_box">
+							 <view class="collecte_info">
+							   <view class="collecte_name">{{item.mename}}</view>
+							   <view class="collecte_choose">选这个</view>
+							 </view>
+							 <!-- <view class="collecte_num"><view>距离最近</view>据您步行距离：67米</view> -->
+							 <view class="collecte_num">据您步行距离：{{item.distance}}</view>
+							 <view class="collecte_add">{{item.meaddress}}</view>
+						   </view>
+						 </view>
+						 <view class="collecte_caption">
+							 <block wx:for="{{item.lablearr}}" wx:for-item="lablearritem" wx:key="{{lablearritem}}">
+										  <view>{{lablearritem.ltitle}}</view>
+							 </block>
+						 </view>
+					</view>
+				</block>
+			</block>
+		</block>
+		<block wx:else>
+			<view class="collecte_num" style="text-align: center;">您的周边暂无代收点</view>
 		</block>
     </view>
   </view>

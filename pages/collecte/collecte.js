@@ -12,6 +12,7 @@ Page({
 	addressinfo:[],
 	orderlist:[],
 	testinfo:'',
+	openstatus:0,
   },
 
   /**
@@ -106,6 +107,7 @@ get_address_info: function() {
   				}
   				that.setData({
   				  orderlist: that.data.orderlist.concat(res.data.data.list),
+				  openstatus: res.data.data.openstatus,
   				})
     	  	  console.log(that.data.orderlist)
     	      } else {

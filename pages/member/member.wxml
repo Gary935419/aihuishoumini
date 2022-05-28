@@ -13,9 +13,9 @@
 		  
         <view class="member_choose_box">
           <view class="member_choose_info">
-            <view class="member_choose_name">{{merchantsInfo.mename}}</view>
-			<view class="member_choose_name" style="font-size: 30rpx;color: #9e9e9e;">{{merchantsInfo.level_name}}</view>
-            <view class="member_choose_tel">{{merchantsInfo.metel}}</view>
+            <view class="member_choose_name" style="margin-bottom: 5px;">{{merchantsInfo.mename}}</view>
+			<image style="width:35%;height:height: 50rpx !important;" src='{{merchantsInfo.level_limg}}' mode="widthFix" />
+            <view class="member_choose_tel">电话:{{merchantsInfo.metel}}</view>
           </view>
           <image src='../../images/jian1.png' mode="aspectFill" />
         </view>

@@ -96,3 +96,21 @@
     </view>
   </view>
 </view>
+<view class="orderlist_bottom">
+<navigator class="orderlist_link" open-type="redirect" url="../index/index" hover-class="none">
+  <image src='../../images/nav1.png' mode="aspectFill" />
+  <view>首页</view>
+</navigator>
+<navigator class="orderlist_link" open-type="redirect" url="../orderquego/orderquego" hover-class="none">
+  <image src='../../images/nav2.png' mode="aspectFill" />
+  <view>一键下单</view>
+</navigator>
+<navigator class="orderlist_link" open-type="redirect" url="../ordernew/ordernew" hover-class="none">
+  <image src='../../images/nav2.png' mode="aspectFill" />
+  <view>我的订单</view>
+</navigator>
+<navigator class="orderlist_link orderlist_on" open-type="redirect" url="../my/my" hover-class="none">
+  <image src='../../images/nav3.png' mode="aspectFill" />
+  <view>个人中心</view>
+</navigator>
+</view>

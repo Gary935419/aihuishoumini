@@ -7,14 +7,14 @@
 		  <block wx:for="{{orderlist}}" wx:index="{{index}}" wx:key='key'>
 			  <view class="ordertijiao_info">
 			    <view class="ordertijiao_text">{{item.ct_name}}</view>
-				<view class="ordertijiao_text">{{item.ct_price}}/kg</view>
-			    <input type="text" data-id="{{item.ogid}}" placeholder="请填写重量(单位kg)" placeholder-style="color:#999999" bindblur="changeInputValue"/>
+				<view class="ordertijiao_text">{{item.ct_price}}/{{item.ct_danwei}}</view>
+			    <input type="text" data-id="{{item.ogid}}" placeholder="请填写重量" placeholder-style="color:#999999" bindblur="changeInputValue"/>
 			  </view>
 		  </block>
       </view>
     </view>
   </view>
-  <view class="orderque_captiopn">
+  <view class="orderque_captiopn" style="margin-top: 100px;">
     <image src='../../images/my11.png' mode="aspectFill" />
     <view>温馨提示：补货处理请选择您要补货的分类，已经存在的分类将不会再次补货进来。谢谢！
     </view>

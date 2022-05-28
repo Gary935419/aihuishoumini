@@ -155,7 +155,7 @@
       <view class="index_recommend_list">
 		  <block wx:for="{{merchants_list}}" wx:index="{{index}}" wx:key='key'>
 			   <navigator class="index_recommend_item" hover-class="none">
-				 <image src='{{item.meimg}}' mode="widthFix" />
+				 <image src='{{item.meimg}}' mode="aspectfill" />
 				 <view>{{item.mename}}</view>
 			   </navigator>
 		  </block>

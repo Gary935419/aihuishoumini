@@ -75,9 +75,6 @@ Page({
 	 
    getupdategoodsorder:function(){
      	  var that = this;
-     	  wx.showLoading({
-     	    title: '加载中',
-     	  })
      	  wx.request({
    			url: app.taskapi + '/Miniapi/orders_goods_update',
      	    method: 'post',
@@ -99,12 +96,6 @@ Page({
      	      }
      	      if (res.data.errcode == '200') {
      	        wx.hideLoading();
-     	      } else {
-     	  		  wx.showToast({
-     	  			title: res.data.errmsg,
-     	  			icon: 'none',
-     	  			duration: 3000
-     	  		  })
      	      }
      	    }
      	  })

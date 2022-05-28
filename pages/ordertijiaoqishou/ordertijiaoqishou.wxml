@@ -12,8 +12,8 @@
 		  <block wx:for="{{orderlist}}" wx:index="{{index}}" wx:key='key'>
 			  <view class="ordertijiao_info">
 			    <view class="ordertijiao_text">{{item.ct_name}}</view>
-				<view class="ordertijiao_text">{{item.m_weight}}kg</view>
-				<view class="ordertijiao_text">{{item.q_weight}}kg</view>
+				<view class="ordertijiao_text">{{item.m_weight}}{{item.ct_danwei}}</view>
+				<view class="ordertijiao_text">{{item.q_weight}}{{item.ct_danwei}}</view>
 			  </view>
 		  </block>
       </view>

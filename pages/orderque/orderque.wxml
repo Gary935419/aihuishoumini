@@ -1,5 +1,5 @@
 <!--pages/orderque/orderque.wxml-->
-<view class="orderque">
+<view class="orderque" style="margin-bottom:100px;">
   <view class="addaddress_top"></view>
   <view class="inner">
     <view class="orderque_top">
@@ -60,12 +60,12 @@
           <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
             <block wx:if="{{dateTimeArray1[3][dateTime1[3]] > 0}}">
             				<view class="tui-picker-detail">
-            				 {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}送至代收点
+            				 {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}送至您选中的代收点
             				</view>
             </block>
             <block wx:else>
             				<view class="tui-picker-detail">
-            				  请选择时间送至代收点
+            				  请您先选择预计什么时间送至附近的代收点。
             				</view>
             </block>
             <image src='../../images/jian1.png' mode="aspectFill" />
@@ -87,7 +87,7 @@
 		       <!-- <view class="orderque_item_xian">限时补贴10％</view> -->
 		       <view class="orderque_item_info">
 				    <!-- <view class="orderque_item_num"><text>¥</text>1.4<view>+0.14元</view></view> -->
-		         <view class="orderque_item_num">{{item.ct_price}}/kg</view>
+		         <view class="orderque_item_num">{{item.ct_price}}/{{item.ct_danwei}}</view>
 		         <!-- <view class="orderque_item_delete" bindtap="warnModalTrue">删除</view> -->
 		       </view>
 		     </view>
@@ -109,4 +109,22 @@
 
     <view class="orderque_btu" bindtap="sendorder">立即下单</view>
   </view>
+</view>
+<view class="orderlist_bottom">
+<navigator class="orderlist_link" open-type="redirect" url="../index/index" hover-class="none">
+  <image src='../../images/nav1.png' mode="aspectFill" />
+  <view>首页</view>
+</navigator>
+<navigator class="orderlist_link" open-type="redirect" url="../orderquego/orderquego" hover-class="none">
+  <image src='../../images/nav2.png' mode="aspectFill" />
+  <view>一键下单</view>
+</navigator>
+<navigator class="orderlist_link" open-type="redirect" url="../ordernew/ordernew" hover-class="none">
+  <image src='../../images/nav2.png' mode="aspectFill" />
+  <view>我的订单</view>
+</navigator>
+<navigator class="orderlist_link orderlist_on" open-type="redirect" url="../my/my" hover-class="none">
+  <image src='../../images/nav3.png' mode="aspectFill" />
+  <view>个人中心</view>
+</navigator>
 </view>

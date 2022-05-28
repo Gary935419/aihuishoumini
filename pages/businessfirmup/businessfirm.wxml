@@ -1,0 +1,54 @@
+<!--pages/businessfirm/businessfirm.wxml-->
+<view class="businessfirm">
+  <view class="addaddress_top"></view>
+  <view class="inner">
+    <view class="ordertijiao_block">
+      <view class="ordertijiao_area">
+        <view class="ordertijiao_info">
+          <view class="ordertijiao_text">店铺位置</view>
+          <input type="text" value="{{address}}" bindinput="bindaddressText" placeholder="请先定位商家位置" />
+		  <navigator bindtap="getlocation" hover-class="none">
+			  <button class="businessfirm_btu">
+				<image src='../../images/ico7.png' mode="widthFix" />
+			  </button>
+		  </navigator>
+        </view>
+        <view class="ordertijiao_info">
+          <view class="ordertijiao_text">联系人</view>
+          <input type="text" bindinput="bindcontactnameText" value="{{contactname}}" placeholder="请录入姓名" />
+        </view>
+        <view class="ordertijiao_info">
+          <view class="ordertijiao_text">联系电话</view>
+          <input type="text" bindinput="bindmetelText" value="{{metel}}" placeholder="请录入电话" />
+        </view>
+        <view class="businessfirm_box">
+          <view class="ordertijiao_text">上传图片</view>
+          <view class="businessfirm_info">
+            <view class="businessfirm_photo" bindtap="uploadpic" style='display:{{isDe11}}'>
+              <image src='../../images/photo.png' mode="widthFix" />
+            </view>
+			
+			<view wx:for="{{upload_picture_list}}" class="businessfirm_photo" wx:key="key">
+			  <image wx:if="{{item.upload_percent < 100}}" src="{{item.path}}" mode="aspectFill"></image>
+			  <image wx:if="{{item.upload_percent == 100}}" src="{{item.path}}" bindtap="previewImg" mode="aspectFill"></image>
+			  <image bindtap='deleteImg' data-src='{{image}}' data-index="{{index}}" style='display:{{isDe22}}' src='../../images/close.png' class="businessfirm_close" />
+			</view>
+			
+          </view>
+        </view>
+        <view class="ordertijiao_info">
+          <view class="ordertijiao_text">商家名称</view>
+          <input type="text" bindinput="bindmenameText" value="{{mename}}" placeholder="请录入名称" />
+        </view>
+        <view class="ordertijiao_info">
+          <view class="ordertijiao_text">是否营业</view>
+          <picker bindchange="changeCountry1"  value="{{countryIndex1}}" range="{{countryList1}}">
+            <image src='../../images/jian1.png' mode="aspectFill" />
+            <view class="tui-picker-detail">{{countryList1[countryIndex1]}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button class="ordertijiao_btu" bindtap="merchants_modify">确认提交</button>
+</view>

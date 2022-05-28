@@ -9,9 +9,9 @@
 			 <image src='{{item.ct_img}}' mode="aspectFill" />
 			 <view class="orderex_box">
 			   <view class="orderex_name">{{item.ct_name}}</view>
-			   <view class="orderex_num">{{item.ct_price}}/kg</view>
+			   <view class="orderex_num">{{item.ct_price}}/{{item.ct_danwei}}</view>
 			   <block wx:if="{{item.og_price > 0}}">
-			      <view class="orderex_num">重量:{{item.weight}}kg</view>
+			      <view class="orderex_num">重量:{{item.weight}}{{item.ct_danwei}}</view>
 			      <view class="orderex_num">价格:{{item.og_price}}元</view>
 			   </block>
 			   <block wx:else>

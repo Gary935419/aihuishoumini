@@ -14,7 +14,7 @@
 				      <view class="project_name">{{item.ct_name}}</view>
 				      <view class="project_caption">{{item.ct_title}}</view>
 				      <view class="project_info">
-				        <view class="project_num"><view>{{item.ct_state}}</view>¥{{item.ct_price}}/kｇ</view>
+				        <view class="project_num"><view>{{item.ct_state}}</view>¥{{item.ct_price}}/{{item.ct_danwei}}</view>
 						<checkbox-group data-id="{{item.ct_id}}" bindchange="checkboxChange">
 							<block wx:if="{{item.check_state == 1}}">
 								<view class="shopcart_checkbox">
