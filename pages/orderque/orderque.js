@@ -19,7 +19,45 @@ Page({
 	otype:0,
 	note:'',
 	isGrant:true,
-	items: []
+	items: [],
+	setarr:[]
+  },
+  get_set_info: function() {
+    var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: app.taskapi + '/Miniapi/get_set_info',
+      method: 'post',
+      data: {
+        token: main.get_storage('token'),
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function(res) {
+        if (!res.data) {
+          wx.showToast({
+            title: '加载错误',
+            icon: 'loading',
+            duration: 10000
+          })
+        }
+        if (res.data.errcode == '200') {
+          wx.hideLoading();
+          that.setData({
+  			setarr: res.data.data.setarr,
+          })
+        } else {
+  		  wx.showToast({
+  			title: res.data.errmsg,
+  			icon: 'none',
+  			duration: 3000
+  		  })
+        }
+      }
+    })
   },
   radioChange: function(e) {
 	  if(e.detail.value == 1){
@@ -323,6 +361,7 @@ console.log(dateArr)
    */
   onShow: function () {
 	var that = this;
+	that.get_set_info();
 	console.log(main.get_storage('ct_ids'));
 	that.get_member_info();
 	this.setData({

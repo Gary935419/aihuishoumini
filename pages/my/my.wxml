@@ -151,14 +151,14 @@
           <image src='../../images/my13.png' mode="aspectFill" />
           <view>地址管理</view>
         </navigator>
-		<navigator class="my_member_link" url="../opinion/opinion" hover-class="none">
+		<!-- <navigator class="my_member_link" url="../opinion/opinion" hover-class="none">
 		  <image src='../../images/my12.png' mode="aspectFill" />
 		  <view>意见反馈</view>
-		</navigator>
-		<!-- <navigator class="my_member_link" catchtap='freeTell'>
+		</navigator> -->
+		<navigator class="my_member_link" catchtap='freeTell'>
 		  <image src='../../images/my12.png' mode="aspectFill" />
 		  <view>联系客服</view>
-		</navigator> -->
+		</navigator>
 		<navigator class="my_member_link" url="../infomation/infomation?id=1" hover-class="none">
 		  <image src='../../images/my11.png' mode="aspectFill" />
 		  <view>关于我们</view>

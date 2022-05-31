@@ -75,8 +75,7 @@
     </view>
 	<view class="orderque_captiopn">
 	      <image src='../../images/my11.png' mode="aspectFill" />
-	      <view>温馨提示:每天13:00点之后不允许下单了,请有下午下单的用户及时调整预约下单时间!请预约每天13:00之前的预定时间。
-	      </view>
+	      <view>{{setarr.tishi}}</view>
 	</view>
     <view class="orderque_list">
 		<block wx:for="{{classtwoinfo}}" wx:index="{{index}}" wx:key='key'>
@@ -96,15 +95,11 @@
     </view>
     <view class="orderque_bei">
       <view>订单备注</view>
-      <textarea bindinput="bindnoteText" placeholder="请输入备注信息"></textarea>
+      <textarea bindinput="bindnoteText" placeholder="{{setarr.beizhu}}"></textarea>
     </view>
     <view class="orderque_captiopn">
       <image src='../../images/my11.png' mode="aspectFill" />
-      <view>建议您在送货前妥善整理货物，请勿掺水、掺杂；
-            尽量将纸板、易拉罐等拆开、踩扁，尽可能缩减存放体积；
-            确保不会造成二次污染共同助力环保；
-            下单后如有问题，可联系客服或代收点为您解决。
-      </view>
+      <view>{{setarr.jianyi}}</view>
     </view>
 
     <view class="orderque_btu" bindtap="sendorder">立即下单</view>

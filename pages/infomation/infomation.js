@@ -8,9 +8,57 @@ Page({
    */
   data: {
 	sid:'',
+	setarr:[],
     goodsdetails: [],
   },
 
+get_set_info: function() {
+    var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: app.taskapi + '/Miniapi/get_set_info',
+      method: 'post',
+      data: {
+        token: main.get_storage('token'),
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function(res) {
+        if (!res.data) {
+          wx.showToast({
+            title: '加载错误',
+            icon: 'loading',
+            duration: 10000
+          })
+        }
+        if (res.data.errcode == '200') {
+          wx.hideLoading();
+		  if(that.data.sid == 1){
+			  that.setData({
+			     url: res.data.data.setarr.aboutus,
+			  })
+		  }else{
+			  that.setData({
+			     url: res.data.data.setarr.recruiting,
+			  })
+		  }
+          that.setData({
+  			setarr: res.data.data.setarr,
+          })
+        } else {
+  		  wx.showToast({
+  			title: res.data.errmsg,
+  			icon: 'none',
+  			duration: 3000
+  		  })
+        }
+      }
+    })
+  },
+  
 /**
    * 获取搜索商品详情
    */
@@ -63,6 +111,7 @@ Page({
         sid: options.id,
       });
       that.get_news_details();
+	  that.get_set_info();
   },
 
   /**
