@@ -105,7 +105,7 @@
     <view class="index_huishou">
       <image src='../../images/index2.png' mode="widthFix" style='width:100%;' />
       <navigator class="index_huishou_link" bindtap="gosendorder" hover-class="none">
-        <image src='../../images/btu1.png' mode="aspectFill" style='width:100%;' />
+        <image src='../../images/banner.gif' mode="aspectFill" style='width:100%;' />
       </navigator>
     </view>
 
