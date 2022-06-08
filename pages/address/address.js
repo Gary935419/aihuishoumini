@@ -9,7 +9,8 @@ Page({
   data: {
     page: 1,
 	orderlist:[],
-	a_id:''
+	a_id:'',
+	a_id1:''
   },
 warnModalTrue(e){
     var self = this;
@@ -78,7 +79,12 @@ warnModalTrue(e){
     	    }
     	  })
     },
-	getlocation:function(){
+	getlocation:function(e){
+		var self = this;
+		self.setData({
+		  a_id1: e.currentTarget.dataset.id,
+		})
+		console.log(e.currentTarget.dataset.id)
 		  //先判断用户是否授权获取地理位置
 		  let that = this;
 		   wx.getSetting({
@@ -113,7 +119,7 @@ warnModalTrue(e){
 					console.log(res)
 					if(res.errMsg == 'chooseLocation:ok'){
 						wx.reLaunch({
-						  url: '/pages/addaddress/addaddress?address='+res.address+res.name+'&latitude='+res.latitude+'&longitude='+res.longitude,
+						  url: '/pages/addaddress/addaddress?address='+res.address+res.name+'&latitude='+res.latitude+'&longitude='+res.longitude+'&a_id='+that.data.a_id1,
 						})
 					}else{
 						wx.showToast({

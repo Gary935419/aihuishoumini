@@ -948,7 +948,7 @@ page {
 }
 .member_choose_box image {
   width: 20rpx;
-  height: 40rpx !important;
+  height: 45rpx !important;
 }
 .member_choose_info {
   width: 90%;
@@ -1302,9 +1302,9 @@ page {
   transform: translate(-50%, -50%) scale(1);
   -webkit-transform: translate(-50%, -50%) scale(1);
 }
-.address_block {
+/* .address_block {
   width: 91%;
-}
+} */
 .address_title {
   font-size: 30rpx;
   color: #333333;

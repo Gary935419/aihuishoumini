@@ -10,6 +10,7 @@ Page({
     // 省市区三级联动初始化
     region: ["辽宁省", "大连市", "高新园区"],
 	address: '',
+	a_id: '',
 	latitude: '',
 	longitude: '',
 	name: '',
@@ -27,10 +28,12 @@ Page({
      console.log(options.address)
 	 console.log(options.latitude)
 	 console.log(options.longitude)
+	 console.log(options.a_id)
      this.setData({
 		 address: options.address,
 		 latitude: options.latitude,
 		 longitude: options.longitude,
+		 a_id: options.a_id,
      })
   },
   changeSwitch1(e){
@@ -70,6 +73,7 @@ bindaddressText: function(e) {
 			  name: that.data.name,
 			  mobile: that.data.mobile,
 			  status: that.data.status,
+			  a_id: that.data.a_id,
      	    },
      	    header: {
      	      'content-type': 'application/x-www-form-urlencoded'
