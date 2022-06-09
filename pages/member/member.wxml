@@ -49,10 +49,10 @@
 		<image src='../../images/my12.png' mode="aspectFill" />
 		<view>联系客服</view>
 		</navigator> -->
-		<navigator class="my_member_link" url="../infomation/infomation?id=1" hover-class="none">
+		<!-- <navigator class="my_member_link" url="../infomation/infomation?id=1" hover-class="none">
 		<image src='../../images/my11.png' mode="aspectFill" />
 		<view>关于我们</view>
-		</navigator>
+		</navigator> -->
 		<!-- <navigator class="my_member_link" url="../infomation/infomation?id=2" hover-class="none">
 		<image src='../../images/my15.png' mode="aspectFill" />
 		<view>平台招募</view>
@@ -65,7 +65,18 @@
 		<image src='../../images/my13.png' mode="aspectFill" />
 		<view>账号退出</view>
 		</navigator>
-		
+		<block wx:if="{{merchantsInfo.is_business == 1}}">
+			<navigator class="my_member_link">
+			<image src='../../images/nav9.png' mode="aspectFill" />
+			<view>营业中</view>
+			</navigator>
+		</block>
+		<block wx:else>
+			<navigator class="my_member_link">
+			<image src='../../images/my11.png' mode="aspectFill" />
+			<view>未营业</view>
+			</navigator>
+		</block>
 		<block wx:if="{{merchantsInfo.full_flg == 1}}">
 			<navigator class="my_member_link">
 			<image src='../../images/nav9.png' mode="aspectFill" />

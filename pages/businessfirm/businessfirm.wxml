@@ -34,6 +34,15 @@
           <view class="ordertijiao_text">是否营业</view>
 		  <input type="text" value="{{countryList1[countryIndex1]}}" disabled='disabled' placeholder="暂无数据" />
         </view>
+		
+		<view class="ordertijiao_info">
+		  <view class="ordertijiao_text">您的等级</view>
+		  <input type="text" value="{{merchantsInfo.level_name}}" disabled='disabled' placeholder="暂无数据" />
+		</view>
+		<view class="ordertijiao_info">
+		  <view class="ordertijiao_text">您的提成比例</view>
+		  <input type="text" value="{{merchantsInfo.level_bili}}%" disabled='disabled' placeholder="暂无数据" />
+		</view>
       </view>
     </view>
   </view>
