@@ -122,14 +122,6 @@ Page({
      	        })
      	      }
      	      if (res.data.errcode == '200') {
-     	        wx.hideLoading();
-   				if(res.data.data.list.length == 0){
-   					wx.showToast({
-   						title: '已经加载全部啦！',
-   						icon: 'none',
-   						duration: 3000
-   					})
-   				}
    				that.setData({
    				  merchants_list: res.data.data.list,
    				})

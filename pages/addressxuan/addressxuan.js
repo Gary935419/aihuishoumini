@@ -113,27 +113,22 @@ warnModalTrue(e){
 	  },
 	     getLocation: function () {
 	      let that = this;
-	      wx.getLocation({
-	        type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
-	        success(res) {
-	          wx.chooseLocation({
-	            success: function (res) {
-					console.log(res)
-					if(res.errMsg == 'chooseLocation:ok'){
-						wx.reLaunch({
-						  url: '/pages/addaddress/addaddress?address='+res.address+res.name+'&latitude='+res.latitude+'&longitude='+res.longitude,
-						})
-					}else{
-						wx.showToast({
-							title: '授权失败！',
-							icon: 'none',
-							duration: 3000
-						})
-					}
-	              // 返回的res:name(地理名称）、address（详细地址，包括省市区相关信息，可根据需要进行拆分）、latitude（纬度）、longitude（经度）
-	            },
-	          })
-	        }
+	      wx.chooseLocation({
+	        success: function (res) {
+				console.log(res)
+				if(res.errMsg == 'chooseLocation:ok'){
+					wx.reLaunch({
+					  url: '/pages/addaddress/addaddress?address='+res.address+res.name+'&latitude='+res.latitude+'&longitude='+res.longitude,
+					})
+				}else{
+					wx.showToast({
+						title: '授权失败！',
+						icon: 'none',
+						duration: 3000
+					})
+				}
+	          // 返回的res:name(地理名称）、address（详细地址，包括省市区相关信息，可根据需要进行拆分）、latitude（纬度）、longitude（经度）
+	        },
 	      })
 	    },
 getaddresslist:function(){
