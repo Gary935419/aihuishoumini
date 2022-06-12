@@ -102,6 +102,6 @@
       <view>{{setarr.jianyi}}</view>
     </view>
 
-    <view class="orderque_btu" bindtap="sendorder">立即下单</view>
+    <view class="orderque_btu" bindtap='getUserProfile'>立即下单</view>
   </view>
 </view>

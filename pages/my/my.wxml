@@ -15,7 +15,7 @@
 			 <view class="my_wei">
 			   <image src='../../images/header.png' mode="aspectFit"/>
 			   <view class="my_wei_right">
-			 	<button class="my_wei_btu" bindtap='getUserProfile'>用户登录</button>
+			 	<button class="my_wei_btu" bindtap='getUserProfile'>点击去授权</button>
 			 	<view>真开心能为环保公益事业献一份力</view>
 			   </view>
 			 </view>
