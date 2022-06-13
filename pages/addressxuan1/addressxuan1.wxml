@@ -25,6 +25,6 @@
       <navigator class="address_tian" url="../collecte/collecte" hover-class="none">确定</navigator>
   </block>
   <block wx:if="{{orderlist == ''}}">
-      <navigator class="address_tian" url="../address/address" hover-class="none">去设置</navigator>
+      <navigator class="address_tian" bindtap='getUserProfile'>去设置</navigator>
   </block>
 </view>

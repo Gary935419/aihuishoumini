@@ -1423,11 +1423,11 @@ page {
   padding: 30rpx 30rpx;
 }
 .project_item image {
-  width: 30%;
-  height: 113rpx !important;
+  width: 38%;
+  height: 150rpx !important;
 }
 .project_area {
-  width: 68%;
+  width: 60%;
 }
 .project_name {
   font-size: 30rpx;

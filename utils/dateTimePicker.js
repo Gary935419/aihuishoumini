@@ -58,12 +58,12 @@ function dateTimePicker(startYear,endYear,date) {
   var defaultDate = date ? [...date.split(' ')[0].split('-'), ...date.split(' ')[1].split(':')] : getNewDateArry();
   // 处理联动列表数据
   /*年月日 时分秒*/ 
-  dateTimeArray[0] = getLoopArray(start,end);
+  // dateTimeArray[0] = getLoopArray(start,end);
   dateTimeArray[1] = getLoopArray(1, 12);
   dateTimeArray[2] = getMonthDay(defaultDate[0], defaultDate[1]);
-  dateTimeArray[3] = getLoopArray(1, 14);
-  dateTimeArray[4] = getLoopArray(0, 59);
-  dateTimeArray[5] = getLoopArray(0, 59);
+  dateTimeArray[3] = getLoopArray(7, 15);
+  // dateTimeArray[4] = getLoopArray(0, 0);
+  // dateTimeArray[5] = getLoopArray(0, 59);
 
   dateTimeArray.forEach((current,index) => {
     dateTime.push(current.indexOf(defaultDate[index]));

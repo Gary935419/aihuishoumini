@@ -356,8 +356,8 @@ console.log(dateArr)
     	  })
 		  var arr1 = that.data.dateTimeArray1;
 		  var arr2 = that.data.dateTime1;
-		  var delivery_date = arr1[0][arr2[0]]+'-'+arr1[1][arr2[1]]+'-'+arr1[2][arr2[2]];
-		  var delivery_time = arr1[3][arr2[3]]+':'+arr1[4][arr2[4]];
+		  var delivery_date = arr1[1][arr2[1]]+'-'+arr1[2][arr2[2]];
+		  var delivery_time = arr1[3][arr2[3]]+':00';
     	  wx.request({
   			url: app.taskapi + '/Miniapi/order_insert',
     	    method: 'post',

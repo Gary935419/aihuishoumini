@@ -60,7 +60,7 @@
           <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
             <block wx:if="{{dateTimeArray1[3][dateTime1[3]] > 0}}">
             				<view class="tui-picker-detail">
-            				 {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}送至您选中的代收点
+            				{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:00送至您选中的代收点
             				</view>
             </block>
             <block wx:else>
