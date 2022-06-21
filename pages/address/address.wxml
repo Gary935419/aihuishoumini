@@ -31,4 +31,5 @@
   </radio-group>
 
   <navigator class="address_tian" data-id="0" bindtap="getlocation" hover-class="none">添加地址</navigator>
+  <navigator class="address_tian" style="margin: 50px auto;" bindtap="linkTo" hover-class="none">去首页</navigator>
 </view>

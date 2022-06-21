@@ -78,7 +78,7 @@
 			</navigator>
 		</block>
 		<block wx:if="{{merchantsInfo.full_flg == 1}}">
-			<navigator class="my_member_link">
+			<navigator class="my_member_link" bindtap='gofullmsg1'>
 			<image src='../../images/nav9.png' mode="aspectFill" />
 			<view>已提醒</view>
 			</navigator>

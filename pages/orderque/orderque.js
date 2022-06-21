@@ -17,6 +17,8 @@ Page({
 	addressinfo:[],
 	classtwoinfo:[],
 	otype:0,
+	yuyueotype:1,  //1：明日15点之前  2：今日15点之前
+	itemstime:[],
 	note:'',
 	isGrant:true,
 	items: [],
@@ -160,6 +162,17 @@ Page({
         }
       }
     })
+  },
+  radioChangetime: function(e) {
+  	  if(e.detail.value == 1){
+  		  this.setData({
+  		    yuyueotype: 1
+  		  });
+  	  }else{
+  		  this.setData({
+  		    yuyueotype: 2
+  		  });
+  	  }
   },
   radioChange: function(e) {
 	  if(e.detail.value == 1){
@@ -354,18 +367,13 @@ console.log(dateArr)
     	  wx.showLoading({
     	    title: '加载中',
     	  })
-		  var arr1 = that.data.dateTimeArray1;
-		  var arr2 = that.data.dateTime1;
-		  var delivery_date = arr1[1][arr2[1]]+'-'+arr1[2][arr2[2]];
-		  var delivery_time = arr1[3][arr2[3]]+':00';
     	  wx.request({
   			url: app.taskapi + '/Miniapi/order_insert',
     	    method: 'post',
     	    data: {
     	      token: main.get_storage('token'),
   		      note: that.data.note,
-			  delivery_time: delivery_time,
-			  delivery_date: delivery_date,
+			  yuyueotype: that.data.yuyueotype,
 			  uname: that.data.addressinfo.name,
 			  utel: that.data.addressinfo.mobile,
 			  muser: that.data.merchantsinfo.mename,
@@ -438,7 +446,8 @@ console.log(dateArr)
 	      if (res.data.errcode == '200') {
 	        wx.hideLoading();
 	        that.setData({
-	          items: res.data.data.sendyourself_arr
+	          items: res.data.data.sendyourself_arr,
+			  itemstime: res.data.data.sendyourself_arrtime
 	        })
 			  console.log(123123)
 	      } else {

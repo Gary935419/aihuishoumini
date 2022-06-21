@@ -10,8 +10,51 @@ Page({
     page: 1,
 	orderlist:[],
 	userInfo:[],
-	a_id:''
+	a_id:'',
+	a_id1:''
   },
+  getgosend:function(e){
+  	var self = this;
+  	self.setData({
+  	  a_id1: e.currentTarget.dataset.id,
+  	})
+  	  wx.getSetting({
+  	       success(res) {
+  	         if (res.authSetting['scope.userLocation'] == false) {//如果没有授权地理位置
+  	           wx.openSetting({
+  	             success(res) {
+  	               res.authSetting = {//打开授权位置页面，让用户自己开启
+  	                 "scope.userLocation": true
+  	               }
+  	             }
+  	           })
+  	         } else {//用户开启授权后可直接获取地理位置
+  	           wx.authorize({
+  	             scope: 'scope.userLocation',
+  	             success() {
+  	               wx.chooseLocation({
+  	                 success: function (res) {
+  	               	console.log(res)
+  	               	if(res.errMsg == 'chooseLocation:ok'){
+  	               		wx.reLaunch({
+  	               		  url: '/pages/addaddress/addaddress?address='+res.address+res.name+'&latitude='+res.latitude+'&longitude='+res.longitude+'&a_id='+self.data.a_id1,
+  	               		})
+  	               	}else{
+  	               		wx.showToast({
+  	               			title: '授权失败！',
+  	               			icon: 'none',
+  	               			duration: 3000
+  	               		})
+  	               	}
+  	                   // 返回的res:name(地理名称）、address（详细地址，包括省市区相关信息，可根据需要进行拆分）、latitude（纬度）、longitude（经度）
+  	                 },
+  	               })
+  	             }
+  	           })
+  	         }
+  	       }
+  	     })
+    },
   getUserProfile(e) {
   	  var that = this;
   	  console.log(config.userInfo);

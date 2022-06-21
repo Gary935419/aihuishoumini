@@ -12,6 +12,11 @@ Page({
 	a_id:'',
 	a_id1:''
   },
+  linkTo:function(){
+    wx.switchTab({
+     url: '/pages/index/index',
+    })
+  },
 warnModalTrue(e){
     var self = this;
 	self.setData({

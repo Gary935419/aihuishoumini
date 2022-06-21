@@ -17,6 +17,7 @@
 		        <view class="address_name">联系人：{{item.name}}<view>{{item.mobile}}</view></view>
 		      </view>
 		    </view>
+			<view class="orderex_qu" data-id="{{item.a_id}}" style="float: left;margin-top: 10px;margin-left: 20px;width: 20%;" bindtap="getgosend">编辑</view>
 		  </view>
 	  </block>
     </view>
