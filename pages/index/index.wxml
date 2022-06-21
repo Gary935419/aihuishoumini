@@ -24,45 +24,21 @@
       <image src='../../images/ico1.png' mode="aspectFill" />
       <swiper vertical="true" display-multiple-items="1" circular="true" autoplay="true" interval="4000" duration="500"
         class='swiper1'>
-        <swiper-item>
-          <scroll-view class="container">
-            <view class="scrolltxt">
-              <view class="marquee_box">
-                <view class="marquee_text" style="transform: translateX(-{{marqueeDistance}}px)">
-                  <text>{{text}}</text>
-                  <text style="margin-right:{{marquee_margin}}px;"></text>
-                  <text style="margin-right:{{marquee_margin}}px;">{{text}}</text>
-                </view>
-              </view>
-            </view>
-          </scroll-view>
-        </swiper-item>
-        <swiper-item>
-          <scroll-view class="container">
-            <view class="scrolltxt">
-              <view class="marquee_box">
-                <view class="marquee_text" style="transform: translateX(-{{marqueeDistance}}px)">
-                  <text>{{text}}</text>
-                  <text style="margin-right:{{marquee_margin}}px;"></text>
-                  <text style="margin-right:{{marquee_margin}}px;">{{text}}</text>
-                </view>
-              </view>
-            </view>
-          </scroll-view>
-        </swiper-item>
-        <swiper-item>
-          <scroll-view class="container">
-            <view class="scrolltxt">
-              <view class="marquee_box">
-                <view class="marquee_text" style="transform: translateX(-{{marqueeDistance}}px)">
-                  <text>{{text}}</text>
-                  <text style="margin-right:{{marquee_margin}}px;"></text>
-                  <text style="margin-right:{{marquee_margin}}px;">{{text}}</text>
-                </view>
-              </view>
-            </view>
-          </scroll-view>
-        </swiper-item>
+		<block wx:for="{{text}}" wx:index="{{index}}" wx:key='key'>
+			<swiper-item>
+			  <scroll-view class="container">
+			    <view class="scrolltxt">
+			      <view class="marquee_box">
+			        <view class="marquee_text" style="transform: translateX(-{{marqueeDistance}}px)">
+			          <text>{{item.n_msg}}</text>
+			          <text style="margin-right:{{marquee_margin}}px;"></text>
+			          <text style="margin-right:{{marquee_margin}}px;">{{item.n_msg}}</text>
+			        </view>
+			      </view>
+			    </view>
+			  </scroll-view>
+			</swiper-item>
+		</block>
       </swiper>
     </view>
 

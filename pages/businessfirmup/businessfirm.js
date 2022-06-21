@@ -316,12 +316,42 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  onShareAppMessage: function (options) {//分享
+      return {
+          title: '爱收帮',
+          path: `/pages/index/index`,
+          success: function (res) {
+              wx.showToast({
+                  title: '分享成功',
+              })
+              // 转发成功
+          },
+          fail: function (res) {
+              wx.showToast({
+                  title: '分享失败',
+              })
+              // 转发失败
+          },
+      }
+   },
+   onShareTimeline: function (res) {
+   		return {
+   		    title: '爱收帮',
+   		    path: `/pages/index/index`,
+   		    success: function (res) {
+   		        wx.showToast({
+   		            title: '分享成功',
+   		        })
+   		        // 转发成功
+   		    },
+   		    fail: function (res) {
+   		        wx.showToast({
+   		            title: '分享失败',
+   		        })
+   		        // 转发失败
+   		    },
+   		}
+   	}
 })
 
 /**
@@ -363,4 +393,5 @@ function upload_file_server(url, that, upload_picture_list, j,jsonLength) {
       upload_picture_list: upload_picture_list
     });
   });
+  
 }
