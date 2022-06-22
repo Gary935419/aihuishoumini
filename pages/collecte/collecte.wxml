@@ -21,10 +21,10 @@
 			<view>点击选择地址信息</view>
 		</block>
       </view>
-      <view class="collecte_address_right">
+     <!-- <view class="collecte_address_right">
         <view>切换地址</view>
         <image src='../../images/jian2.png' mode="aspectFill" />
-      </view>
+      </view> -->
     </navigator>
     <view class="collecte_title">附近代收点</view>
     <view class="collecte_list">

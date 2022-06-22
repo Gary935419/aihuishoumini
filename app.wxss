@@ -878,9 +878,9 @@ page {
   align-items: center;
   position: relative;
 }
-.ordertijiao_info:last-of-type {
+/* .ordertijiao_info:last-of-type {
   border-top: 1px solid #DCDCDC;
-}
+} */
 .ordertijiao_text {
   font-size: 29rpx;
   color: #000000;
@@ -1081,7 +1081,7 @@ page {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 70%;
+  width: 100%;
 }
 .collecte_address_left image {
   width: 30rpx;

@@ -3,13 +3,6 @@
   <view class="addaddress_top"></view>
   <view class="addaddress_section">
     <view class="inner">
-      <!-- <view class="addaddress_box">
-        <view class="addaddress_text">省份</view>
-        <picker bindchange="changeRegin" mode = "region" value="{{region}}">
-          <view class="tui-picker-detail">{{region[0]}} - {{region[1]}} - {{region[2]}}</view>
-          <image src='../../images/jian1.png' mode="aspectFit" />
-        </picker>
-      </view> -->
       <view class="addaddress_box">
         <view class="addaddress_text">详细地址</view>
         <input type="text" value="{{address}}" bindinput="bindaddressText" placeholder-style="color:#AFABAB" />
@@ -21,10 +14,6 @@
       <view class="addaddress_box">
         <view class="addaddress_text">联系电话</view>
         <input type="text" placeholder="请输入联系电话" bindinput="bindmobileText" placeholder-style="color:#AFABAB" />
-      </view>
-      <view class="addaddress_box">
-        <view class="addaddress_text">是否默认</view>
-        <switch checked="{{isChecked1}}" bindchange="changeSwitch1"/>
       </view>
     </view>
   </view>

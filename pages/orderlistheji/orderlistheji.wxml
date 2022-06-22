@@ -19,7 +19,7 @@
 	   			    <view class="ordertijiao_text">{{item.ct_name}}</view>
 	   				<view class="ordertijiao_text">{{item.m_weight}}{{item.ct_danwei}}</view>
 					<view class="ordertijiao_text">{{item.price}}/{{item.ct_danwei}}</view>
-					<view class="ordertijiao_text">{{item.m_weight * item.price}}元</view>
+					<view class="ordertijiao_text">{{item.newprice}}元</view>
 	   			    <!-- <input type="text" data-id="{{item.omid}}" placeholder="请填写重量(单位kg)" placeholder-style="color:#999999" bindblur="changeInputValue"/> -->
 	   			  </view>
 	   		  </block>

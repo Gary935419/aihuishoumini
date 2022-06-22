@@ -3,7 +3,7 @@
   <view class="addaddress_top"></view>
   <view class="inner">
     <view class="orderque_top">
-      <navigator class="orderque_top_area" url="../addressxuan/addressxuan" hover-class="none">
+      <view class="orderque_top_area" data-id="{{a_id}}" bindtap="getUserProfilenew">
         <image src='../../images/ico9.png' mode="aspectFill" />
         <view class="orderque_top_box">
 		  <block wx:if="{{a_id != ''}}">
@@ -18,7 +18,7 @@
 		  </block>
           <image src='../../images/jian1.png' mode="aspectFill" />
         </view>
-      </navigator>
+      </view>
 	  <navigator class="orderque_top_area" hover-class="none">
 	    <image src='../../images/ico10.png' mode="aspectFill" />
 	    <view class="orderque_top_box">
@@ -61,7 +61,7 @@
 				 <view class="orderque_top_name">
 					 <radio-group class="radio-group" bindchange="radioChangetime">
 						<label class="radio" wx:for="{{itemstime}}">
-						    <radio value="{{item.value}}" style="margin-left: 20px;" checked="{{item.checked}}"/>{{item.name}}
+						    <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
 						</label>
 					 </radio-group>
 				 </view>

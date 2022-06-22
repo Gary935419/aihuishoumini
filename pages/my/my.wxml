@@ -147,14 +147,14 @@
           <image src='../../images/my10.png' mode="aspectFill" />
           <view>个人信息</view>
         </navigator>
-        <navigator class="my_member_link" url="../address/address" hover-class="none">
+        <!-- <navigator class="my_member_link" url="../address/address" hover-class="none">
           <image src='../../images/my13.png' mode="aspectFill" />
           <view>地址管理</view>
-        </navigator>
-		<!-- <navigator class="my_member_link" url="../opinion/opinion" hover-class="none">
+        </navigator> -->
+		<navigator class="my_member_link" url="../opinion/opinion" hover-class="none">
 		  <image src='../../images/my12.png' mode="aspectFill" />
 		  <view>意见反馈</view>
-		</navigator> -->
+		</navigator>
 		<navigator class="my_member_link" catchtap='freeTell'>
 		  <image src='../../images/my12.png' mode="aspectFill" />
 		  <view>联系客服</view>

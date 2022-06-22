@@ -18,6 +18,7 @@ Page({
     this.setData({ 
 		date:e.detail.value,
 		orderlist:[],
+		page:1
 	});
 	that.getOrderslist();
   },
@@ -56,7 +57,7 @@ Page({
   				}
   				that.setData({
   				  orderlist: that.data.orderlist.concat(res.data.data.list),
-            date: res.data.data.date,
+                  date: res.data.data.date,
   				})
     	  	  console.log(that.data.orderlist)
     	      } else {

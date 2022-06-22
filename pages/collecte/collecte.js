@@ -28,6 +28,43 @@ Page({
   onReady: function () {
 
   },
+  getaddressmuren:function(){
+      	  var that = this;
+      	  wx.showLoading({
+      	    title: '加载中',
+      	  })
+      	  wx.request({
+  			url: app.taskapi + '/Miniapi/member_address_muren',
+      	    method: 'post',
+      	    data: {
+      	      token: main.get_storage('token'),
+      	    },
+      	    header: {
+      	      'content-type': 'application/x-www-form-urlencoded'
+      	    },
+      	    success: function(res) {
+      	      if (!res.data) {
+      	        wx.showToast({
+      	          title: '加载错误',
+      	          icon: 'loading',
+      	          duration: 10000
+      	        })
+      	      }
+      	      if (res.data.errcode == '200') {
+      	        wx.hideLoading();
+  				main.set_storage('a_id', res.data.data.a_id);
+  				console.log(1232132132)
+      	  	    console.log(res.data.data.a_id)
+      	      } else {
+      	  		  wx.showToast({
+      	  			title: res.data.errmsg,
+      	  			icon: 'none',
+      	  			duration: 3000
+      	  		  })
+      	      }
+      	    }
+      	  })
+      },
 get_address_info: function() {
     var that = this;
     wx.showLoading({
@@ -183,6 +220,7 @@ get_address_info: function() {
    */
   onShow: function () {
     var that = this;
+	that.getaddressmuren();
 	this.setData({
 	  a_id:main.get_storage('a_id'),
 	  orderlist:[],

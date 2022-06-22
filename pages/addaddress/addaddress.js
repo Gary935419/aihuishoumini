@@ -15,7 +15,8 @@ Page({
 	longitude: '',
 	name: '',
 	mobile: '',
-	status: false,
+	status: 'ture',
+	userInfo:[]
   },
   // 选择省市区函数
   changeRegin(e){
@@ -94,9 +95,14 @@ bindaddressText: function(e) {
    			    duration: 2000,
    			    success: function () {
    			      setTimeout(function() {
-   			        wx.reLaunch({
-   			          url: '/pages/address/address',
-   			        })
+   			        // wx.reLaunch({
+   			        //   url: '/pages/address/address',
+   			        // })
+					console.log(res.data.data.a_id);
+					main.set_storage('a_id', res.data.data.a_id);
+					wx.navigateBack({
+						delta:1,
+					})
    			      }, 2000);
    			    }
    			});
