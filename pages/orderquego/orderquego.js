@@ -23,6 +23,7 @@ Page({
 	isGrant:true,
 	items: [],
 	userInfo:[],
+	shouquanstate:0,
 	setarr:[]
   },
   getgoaddress:function(e){
@@ -106,12 +107,18 @@ Page({
 			  that.setData({
 			    a_id1: e.currentTarget.dataset.id,
 			  })
-			  console.log(1111);
-			  console.log(config.userInfo.length);
-			  console.log(2222);
+			  
 			  if (config.userInfo.length != '') {
 			  	that.getgoaddress();
 			  } else{
+				  
+				  if(that.data.shouquanstate == 1){
+					  return false;
+				  }else{
+					  that.setData({
+					  	shouquanstate: 1
+					  })
+				  }
 			  	// 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
 			  	wx.getUserProfile({
 			  	  desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写

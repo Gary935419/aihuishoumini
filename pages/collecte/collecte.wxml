@@ -1,10 +1,6 @@
 <!--pages/collecte/collecte.wxml-->
 <view class="collecte">
   <view class="collecte_top">
-    <!-- <navigator class="collecte_top_city" url="../city/city" hover-class="none">
-      <view>金州区</view>
-      <image src='../../images/jian3.png' mode="aspectFill" />
-    </navigator> -->
     <form action="" class="collecte_top_form">
       <image src='../../images/search2.png' bindtap="getOrderslistseach" mode="aspectFill" />
       <input type="text" placeholder-style="color:#A1A1A1" bindinput="bindinfoText" placeholder="请输入代收点名称" />

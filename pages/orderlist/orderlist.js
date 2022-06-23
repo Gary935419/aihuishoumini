@@ -10,11 +10,17 @@ Page({
   data: {
     date: '',
 	orderlist:[],
-	page:1
+	page:1,
+	testinfo:''
   },
+  bindinfoText: function(e) {
+  	  console.log(e.detail.value)
+  	this.setData({
+  	  testinfo: e.detail.value
+  	})
+   },
   changeDate(e){
 	  var that = this;
-	console.log(e.detail.value)
     this.setData({ 
 		date:e.detail.value,
 		orderlist:[],
@@ -22,8 +28,52 @@ Page({
 	});
 	that.getOrderslist();
   },
+  getOrderslistseach:function(){
+    	  var that = this;
+    	  wx.showLoading({
+    	    title: '加载中',
+    	  })
+    	  wx.request({
+  			url: app.taskapi + '/Miniapi/merchants_order_listnew',
+    	    method: 'post',
+    	    data: {
+    	      token: main.get_storage('merchants_token'),
+  		      page: 1,
+			  date: that.data.date,
+  		      testinfo: that.data.testinfo,
+    	    },
+    	    header: {
+    	      'content-type': 'application/x-www-form-urlencoded'
+    	    },
+    	    success: function(res) {
+    	      if (!res.data) {
+    	        wx.showToast({
+    	          title: '加载错误',
+    	          icon: 'loading',
+    	          duration: 10000
+    	        })
+    	      }
+    	      if (res.data.errcode == '200') {
+    	        wx.hideLoading();
+  				that.setData({
+  				  orderlist: res.data.data.list,
+  				})
+    	      } else {
+    	  		  wx.showToast({
+    	  			title: res.data.errmsg,
+    	  			icon: 'none',
+    	  			duration: 3000
+    	  		  })
+    	      }
+    	    }
+    	  })
+    },
+	
   getOrderslist:function(){
     	  var that = this;
+		  that.setData({
+		    testinfo: ''
+		  })
     	  wx.showLoading({
     	    title: '加载中',
     	  })

@@ -12,6 +12,12 @@
 			  <image src='../../images/jian1.png' mode="aspectFill" />
 		  </view>
 	   </picker>
+	   <view class="collecte_top" style="background: #fff;border-radius: 8px;padding: 25rpx;display: flex;justify-content: space-between;align-items: center;margin-bottom: 25rpx;">
+	     <form action="" class="collecte_top_form">
+	       <image src='../../images/search2.png' bindtap="getOrderslistseach" mode="aspectFill" />
+	       <input type="text" value="{{testinfo}}" placeholder-style="color:#A1A1A1" bindinput="bindinfoText" placeholder="请输入送货人姓名" />
+	     </form>
+	   </view>
       <view class="orderlist_list">
 		  <block wx:for="{{orderlist}}" wx:index="{{index}}" wx:key='key'>
 			<view class="order_link" hover-class="none">
