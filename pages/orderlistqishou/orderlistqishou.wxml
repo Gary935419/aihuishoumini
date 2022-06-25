@@ -46,7 +46,7 @@
 			  <view class="order_info">
 			    <view class="order_title">订单价格</view>
 			    <block wx:if="{{item.q_weight != 0}}">
-			       <view class="order_text">{{item.q_weight * item.price}}元</view>
+			       <view class="order_text">{{item.pricenew}}元</view>
 			    </block>
 			    <block wx:else>
 			       <view class="order_text">目前还没有称重</view>

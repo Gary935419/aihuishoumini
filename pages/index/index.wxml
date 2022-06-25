@@ -66,7 +66,7 @@
 						</navigator>
 		</block>
 	</block>
-      <navigator class="index_dao_link" bindtap="warncostatenoTrue" hover-class="none">
+    <!--  <navigator class="index_dao_link" bindtap="warncostatenoTrue" hover-class="none">
         <image src='../../images/dao9.png' mode="aspectFill" />
         <view class="index_dao_name">大件清运</view>
         <view class="index_dao_caption">暂未开通</view>
@@ -75,7 +75,7 @@
         <image src='../../images/dao10.png' mode="aspectFill" />
         <view class="index_dao_name">自营商城</view>
         <view class="index_dao_caption">暂未开通</view>
-      </navigator>
+      </navigator>  -->
     </view>
 
     <view class="index_huishou">
