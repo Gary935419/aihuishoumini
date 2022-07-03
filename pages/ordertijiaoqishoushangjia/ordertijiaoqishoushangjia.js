@@ -61,15 +61,10 @@ Page({
      	      } else {
      	  		  wx.hideLoading();
      	  		  wx.showToast({
-     	  		  			title: res.data.errmsg,
-     	  		  			icon: 'none',
-     	  		  			duration: 3000
+						title: res.data.errmsg,
+						icon: 'none',
+						duration: 3000
      	  		  })
-     	  		  setTimeout(function() {
-     	  		    wx.reLaunch({
-						url: '/pages/memberqishou/memberqishou',
-     	  		    })
-     	  		  }, 500);
      	      }
      	    }
      	  })

@@ -31,7 +31,6 @@ Page({
     	    method: 'post',
     	    data: {
     	      token: main.get_storage('qishou_token'),
-  		      page: that.data.page,
   		      date: that.data.date,
     	    },
     	    header: {
@@ -55,10 +54,9 @@ Page({
   					})
   				}
   				that.setData({
-  				  orderlist: that.data.orderlist.concat(res.data.data.list),
-            date: res.data.data.date,
+  				  orderlist: res.data.data.list,
+                  date: res.data.data.date,
   				})
-    	  	  console.log(that.data.orderlist)
     	      } else {
     	  		  wx.showToast({
     	  			title: res.data.errmsg,
@@ -89,7 +87,6 @@ Page({
   onShow: function () {
      var that = this;
      this.setData({
-       page: 1,
        orderlist:[],
      })
      that.getOrderslist();
@@ -120,12 +117,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log("上拉加载")
-    var that = this;
-    that.setData({
-      page: that.data.page + 1
-    })
-    that.getOrderslist();
+    
   },
 
   onShareAppMessage: function (options) {//分享

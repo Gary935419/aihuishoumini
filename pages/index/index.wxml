@@ -128,16 +128,33 @@
           <image src='../../images/jian1.png' mode="aspectFill" />
         </navigator> -->
       </view>
-      <view class="index_recommend_list">
+	  
+      <view class="index_recommend_list" style="white-space: nowrap;overflow-x: scroll;">
 		  <block wx:for="{{merchants_list}}" wx:index="{{index}}" wx:key='key'>
-			   <navigator class="index_recommend_item" hover-class="none">
-				 <image src='{{item.meimg}}' mode="aspectfill" />
+			   <!-- <navigator class="index_recommend_item" hover-class="none">
+				 <image src='{{item.meimg}}' mode="aspectFill" />
 				 <view>{{item.mename}}</view>
-			   </navigator>
+			   </navigator> -->
+			   <view class="index_recommend_item" style="display: inline-block;margin-right: 20rpx;">
+					 <image src='{{item.meimg}}' mode="aspectFill" style="width: 170px;height: 100px !important;"/>
+					 <view>{{item.mename}}</view>
+			   </view>
 		  </block>
       </view>
+	  
+	  <!-- <swiper autoplay="true" interval="3000" duration="1000" class='swiper' style='width: 100%;height: 200px'>
+	    <block wx:for="{{merchants_list}}" wx:index="{{index}}" wx:key='key'>
+	  	   <swiper-item>
+           <view class="tui_swiper">
+            <image src='{{item.meimg}}' mode="aspectfit" style='width:100%;' />
+           </view>
+	  		
+	  	   </swiper-item>
+	    </block>
+	  </swiper> -->
+	  
     </view>
-
+	
     <view class="index_friends">
       <view class="index_require_title">合作伙伴</view>
       <view class="index_friends_area">

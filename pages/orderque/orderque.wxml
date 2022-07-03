@@ -98,6 +98,7 @@
       <view>{{setarr.jianyi}}</view>
     </view>
 
-    <view class="orderque_btu" bindtap='getUserProfile'>立即下单</view>
+	<button class="orderque_btu" style="width: 100%;margin-top: 20px;margin-bottom: 20px;" bindtap='getUserProfile'>立即下单</button>
+	<button class="orderque_btu" style="width: 100%;margin-top: 20px;margin-bottom: 20px;background: linear-gradient(#2196F3 , #2196F3);" data-name="shareBtn" open-type="share">立即分享</button>
   </view>
 </view>

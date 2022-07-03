@@ -24,6 +24,8 @@ Page({
 	items: [],
 	userInfo:[],
 	shouquanstate:0,
+	fenxiangstr: '',
+	fenxiangimg: '',
 	setarr:[]
   },
   getgoaddress:function(e){
@@ -284,6 +286,8 @@ Page({
           wx.hideLoading();
           that.setData({
   			setarr: res.data.data.setarr,
+			fenxiangstr: res.data.data.setarr.fenxiangtext,
+			fenxiangimg: res.data.data.setarr.fenxiangimg,
           })
         } else {
   		  wx.showToast({
@@ -526,20 +530,20 @@ console.log(dateArr)
     	        })
     	      }
     	      if (res.data.errcode == '200') {
-  			wx.hideLoading();
-  			wx.showToast({
-  			    title: res.data.errmsg,
-  			    icon: 'none',
-  			    duration: 2000,
-  			    success: function () {
-  			      setTimeout(function() {
-					main.remove_storage('ct_ids');
-  			        wx.reLaunch({
-  			          url: '/pages/order/order',
-  			        })
-  			      }, 2000);
-  			    }
-  			});
+					wx.hideLoading();
+					wx.showToast({
+						title: res.data.errmsg,
+						icon: 'none',
+						duration: 2000,
+						success: function () {
+						  setTimeout(function() {
+							main.remove_storage('ct_ids');
+							wx.reLaunch({
+							  url: '/pages/order/order',
+							})
+						  }, 2000);
+						}
+					});
     	      } else {
     	  		  wx.showToast({
     	  			title: res.data.errmsg,
@@ -653,9 +657,11 @@ console.log(dateArr)
   },
 
   onShareAppMessage: function (options) {//分享
+      var that = this;
       return {
-          title: '爱收帮',
-          path: `/pages/index/index`,
+          title: that.data.fenxiangstr,
+          path: '/pages/index/index',
+  		  imageUrl: that.data.fenxiangimg,
           success: function (res) {
               wx.showToast({
                   title: '分享成功',

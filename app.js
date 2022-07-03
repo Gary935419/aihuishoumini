@@ -1,6 +1,7 @@
 // app.js
 App({
 	taskapi: 'https://ahs.dltqwy.com/index.php/api', //正式接口测试
+	taskapiimg: 'https://ahs.dltqwy.com/', 
   onLaunch() {
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []

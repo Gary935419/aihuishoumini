@@ -142,6 +142,12 @@ navigator {
   z-index: 2;
   margin-top: 30rpx;
 }
+.tui_swiper {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .addaddress_section .inner {
   background: #fff;
   border-radius: 8px;
